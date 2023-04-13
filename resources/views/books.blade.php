@@ -9,8 +9,8 @@
             <table class="table-auto border-collapse border border-gray-700 w-full">
                 <thead>
                     <tr>
-                        <th class="px-4 py-2 text-left">Author</th>
                         <th class="px-4 py-2 text-left">Title</th>
+                        <th class="px-4 py-2 text-left">Author</th>
                         <th class="px-4 py-2 text-left">Language</th>
                         <th class="px-4 py-2 text-left">Status</th>
                     </tr>
@@ -19,11 +19,13 @@
                     @foreach ($books as $book)
 
                     <tr>
+                        <td class="border border-gray-700 px-4 py-2 text-left"><a href="/books/{{$book->slug}}">{{$book->title}}
+                        </a></td>
                         <td class="border border-gray-700 px-4 py-2 text-left">{{$book->author}}</td>
-                        <td class="border border-gray-700 px-4 py-2 text-left">{{$book->title}}</td>
                         <td class="border border-gray-700 px-4 py-2 text-left">{{$book->language}}</td>
                         <td class="border border-gray-700 px-4 py-2 text-left">{{$book->status}}</td>
                     </tr>
+
                     @endforeach
 
                 </tbody>

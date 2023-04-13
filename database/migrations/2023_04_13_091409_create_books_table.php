@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->string('title');
             $table->string('author');
-            $table->string('language');
-            $table->string('status');
+            $table->string('language')->default('English');
+            $table->string('status')->default('available');
             $table->text('description');
             $table->timestamps();
         });

@@ -2,11 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use App\Http\Requests\BookRequest;
 use App\Models\Book;
 
 class BookController extends Controller
 {
+
+    use AuthorizesRequests, ValidatesRequests;
+
     public function show()
     {
         $books = Book::all();
@@ -18,13 +24,30 @@ class BookController extends Controller
         return view('book', ['book' => $book]);
     }
 
-    public function showForm()
+    public function create()
     {
-        //
+        // TODO:
+        // get info from LanguageController and AuthorController
+        // return view('create', ['languages'=> Language::all()])
+
+        return view('create');
     }
 
-    public function store()
+    public function store(BookRequest $request)
     {
-        //
+        // Access validated data from the validated() method
+        $title = $request->validated()['title'];
+        $author = $request->validated()['author'];
+        $description = $request->validated()['description'];
+
+        $book = new Book;
+        $book->title = $title;
+        $book->slug = Str::slug($title);
+        // $book->language_id = $language;
+        $book->author = $author;
+        $book->description = $description;
+        $book->save();
+
+        return redirect('/books')->with('success', 'Your pun has been submitted!');
     }
 }

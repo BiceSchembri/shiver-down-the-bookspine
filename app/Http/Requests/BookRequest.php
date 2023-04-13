@@ -24,7 +24,8 @@ class BookRequest extends FormRequest
         return [
             'title' => ['required', 'max:255'],
             'author' => ['required', 'max:255'],
-            'description' => ['required', 'min:5', 'max:255']
+            'description' => ['required', 'min:5', 'max:255'],
+            'language' => ['required'],
         ];
     }
 
@@ -43,6 +44,7 @@ class BookRequest extends FormRequest
             'description.required' => 'Some description is required.',
             'description.min' => 'The description must be at least :min characters.',
             'description.max' => 'The description may not exceed :max characters.',
+            'language' => 'Please specify a language',
         ];
     }
 }

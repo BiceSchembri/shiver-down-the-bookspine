@@ -5,21 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Book extends Model
+class Language extends Model
 {
     use HasFactory;
 
     protected $fillable = [
+        'name',
         'slug',
-        'title',
-        'author',
-        'language',
-        'status',
-        'description',
     ];
 
-    public function language()
+    public function pun()
     {
-        return $this->belongsTo(Language::class);
+        return $this->hasMany(Book::class);
     }
 }

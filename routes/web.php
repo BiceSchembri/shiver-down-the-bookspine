@@ -13,8 +13,8 @@ Route::get('/books', [BookController::class, 'show'])->name('books');
 Route::get('/books/{book:slug}', [BookController::class, 'showDetail'])->name('book-detail');
 
 // Create book
-Route::get('/createBook', [BookController::class, 'create'])->name('create-book');
-Route::post('/createBook', [BookController::class, 'store'])->name('create-book');
+Route::get('/create-book', [BookController::class, 'create'])->name('create-book');
+Route::post('/create-book', [BookController::class, 'store'])->name('create-book');
 
 // Author views
 Route::get('/{author:slug}', [AuthorController::class, 'showDetail'])->name('author-detail');

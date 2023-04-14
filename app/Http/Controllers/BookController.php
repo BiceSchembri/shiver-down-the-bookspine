@@ -8,6 +8,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use App\Http\Requests\BookRequest;
 use App\Models\Book;
 use App\Models\Language;
+use App\Models\Author;
 
 class BookController extends Controller
 {
@@ -29,7 +30,7 @@ class BookController extends Controller
     {
         // TODO:
         // get info from LanguageController and AuthorController
-        return view('create', ['languages' => Language::all()]);
+        return view('create', ['languages' => Language::all(), 'authors' => Author::all()]);
     }
 
     public function store(BookRequest $request)

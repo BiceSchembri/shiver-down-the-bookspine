@@ -21,7 +21,8 @@
                     <tr>
                         <td class="border border-gray-700 px-4 py-2 text-left"><a href="/books/{{$book->slug}}">{{$book->title}}
                         </a></td>
-                        <td class="border border-gray-700 px-4 py-2 text-left">{{$book->author}}</td>
+                        {{-- TODO: show full author name --}}
+                        <td class="border border-gray-700 px-4 py-2 text-left">{{$book->author->lastname}}</td>
                         <td class="border border-gray-700 px-4 py-2 text-left">{{$book->language->name}}</td>
                         <td class="border border-gray-700 px-4 py-2 text-left">{{$book->status}}</td>
                     </tr>

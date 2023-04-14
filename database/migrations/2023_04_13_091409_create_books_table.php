@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->id();
-            $table->string('slug')->unique();
             $table->string('title');
+            $table->string('slug')->unique();
             $table->foreignId('author_id');
             $table->foreignId('language_id');
             $table->string('status')->default('available');

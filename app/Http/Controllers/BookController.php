@@ -29,7 +29,7 @@ class BookController extends Controller
     {
         // TODO:
         // get info from AuthorController
-        return view('create', ['languages' => Language::all(), 'authors' => Author::all()]);
+        return view('createBook', ['languages' => Language::all(), 'authors' => Author::all()]);
     }
 
     public function store(BookRequest $request)

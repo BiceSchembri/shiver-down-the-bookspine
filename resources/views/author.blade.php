@@ -4,8 +4,11 @@
 
 <div>
     <h1>{{$author->authorName()}}</h1>
-    {{-- <p><a href="/{{$author->slug}}">{{$author->authorName()}}</a></p> --}}
-    <p>{{$author->book->title}}</p>
+
+    @foreach($author->book as $book)
+    <p>{{$book->title}}</p>
+@endforeach
+
 </div>
 
 @endsection

@@ -33,17 +33,15 @@ class BookController extends Controller
     public function store(BookRequest $request)
     {
         $title = $request->validated()['title'];
-        $authorFirstname = $request->validated()['authorFirstname'];
-        $authorLastname = $request->validated()['authorLastname'];
         $description = $request->validated()['description'];
         $language = $request->validated()['language'];
         $status = $request->validated()['status'];
 
         // Assign to author if already existing, otherwise create new author
         $author = Author::firstOrCreate([
-            'firstname' => $authorFirstname,
-            'lastname' => $authorLastname,
-            'slug' => Str::slug($authorFirstname . '-' . $authorLastname)
+            'firstname' => $request->validated()['authorFirstname'],
+            'lastname' => $request->validated()['authorLastname'],
+            'slug' => Str::slug($request->validated()['authorFirstname'] . '-' . $request->validated()['authorLastname'])
         ]);
 
         $book = new Book;
@@ -63,5 +61,38 @@ class BookController extends Controller
     {
         $book->delete();
         return redirect('/books')->with('success', 'Book deleted successfully');
+    }
+
+    public function edit(Book $book)
+    {
+        // return $book->title;
+        return view('edit-book', ['book' => $book, 'languages' => Language::all(), 'authors' => Author::all()]);
+    }
+
+    public function update(BookRequest $request, Book $book)
+    {
+        $title = $request->validated()['title'];
+        $description = $request->validated()['description'];
+        $language = $request->validated()['language'];
+        $status = $request->validated()['status'];
+
+        // Assign to author if already existing, otherwise create new author
+        $author = Author::firstOrCreate([
+            'firstname' => $request->validated()['authorFirstname'],
+            'lastname' => $request->validated()['authorLastname'],
+            'slug' => Str::slug($request->validated()['authorFirstname'] . '-' . $request->validated()['authorLastname'])
+        ]);
+
+        $book = new Book;
+        $book->title = $title;
+        $book->description = $description;
+        $book->language_id = $language;
+        $book->status = $status;
+        $book->slug = Str::slug($title);
+        $book->author_id = $author->id;
+
+        $book->save();
+
+        return redirect('/books')->with('success', 'Book updated successfully');
     }
 }

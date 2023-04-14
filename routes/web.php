@@ -27,9 +27,11 @@ Route::post('/create-author', [AuthorController::class, 'store'])->name('create-
 // Delete book
 Route::delete('/books/{book:slug}', [BookController::class, 'delete'])->name('delete-book');
 
-// TODO:
-// update book
+// TODO: edit
+Route::get('/books/{book:slug}/edit-book', [BookController::class, 'edit'])->name('edit-book');
+Route::patch('/books/{book:slug}/edit-book', [BookController::class, 'update'])->name('edit-book');
 
+// TODO:
 // update author
 // delete author - only if no books associated
 

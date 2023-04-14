@@ -24,6 +24,8 @@
                         <td class="border border-gray-700 px-4 py-2 text-left"><a href="/{{$book->author->slug}}">{{$book->author->authorName()}}</a></td>
                         <td class="border border-gray-700 px-4 py-2 text-left">{{$book->language->name}}</td>
                         <td class="border border-gray-700 px-4 py-2 text-left">{{$book->status}}</td>
+                        <td class="border border-gray-700 px-4 py-2 text-left"><a href="/books/{{$book->slug}}/edit-book">Edit
+                        </a></td>
                         <td class="border border-gray-700 px-4 py-2 text-left">
                             <form action="{{ route('delete-book', $book->slug) }}" method="POST">
                             @csrf

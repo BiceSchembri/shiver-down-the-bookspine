@@ -6,7 +6,7 @@
     <h1>{{$author->authorName()}}</h1>
 
     @foreach($author->book as $book)
-    <p>{{$book->title}}</p>
+    <p><a href="/books/{{$book->slug}}">{{$book->title}}</a></p>
 @endforeach
 
 </div>

@@ -4,8 +4,8 @@
 
 <div>
     <h1>{{$book->title}}</h1>
-    {{-- TODO: show full author name; then allow for more authors --}}
-    <p>{{$book->author->lastname}}</p>
+    {{-- TODO: allow for more authors --}}
+    <p><a href="/{{$book->author->slug}}">{{$book->author->authorName()}}</a></p>
     <p>{{$book->language->name}}</p>
     <p>{{$book->description}}</p>
     <p>{{$book->status}}</p>

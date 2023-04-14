@@ -12,4 +12,9 @@ class AuthorController extends Controller
         $authors = Author::all();
         return view('authors', ["authors" => $authors]);
     }
+
+    public function showDetail(Author $author)
+    {
+        return view('author', ['author' => $author]);
+    }
 }

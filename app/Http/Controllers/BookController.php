@@ -12,7 +12,6 @@ use App\Models\Author;
 
 class BookController extends Controller
 {
-
     use AuthorizesRequests, ValidatesRequests;
 
     public function show()
@@ -29,13 +28,12 @@ class BookController extends Controller
     public function create()
     {
         // TODO:
-        // get info from LanguageController and AuthorController
+        // get info from AuthorController
         return view('create', ['languages' => Language::all(), 'authors' => Author::all()]);
     }
 
     public function store(BookRequest $request)
     {
-        // Access validated data from the validated() method
         $title = $request->validated()['title'];
         $author = $request->validated()['author'];
         $description = $request->validated()['description'];
@@ -45,6 +43,7 @@ class BookController extends Controller
         $book->title = $title;
         $book->slug = Str::slug($title);
         $book->language_id = $language;
+        // TODO: findOrCreate author, change to author id?
         $book->author = $author;
         $book->description = $description;
         $book->save();

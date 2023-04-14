@@ -2,18 +2,28 @@
 
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\AuthorController;
 use Illuminate\Support\Facades\Route;
 
-// HOMEPAGE
+// Homepage
 Route::get('/', [HomepageController::class, 'show'])->name('homepage');
 
-// BOOK VIEWS
+// Book views
 Route::get('/books', [BookController::class, 'show'])->name('books');
 Route::get('/books/{book:slug}', [BookController::class, 'showDetail'])->name('book-detail');
 
-// TODO: create, edit, delete
+// Create book
 Route::get('/create', [BookController::class, 'create'])->name('create');
 Route::post('/create', [BookController::class, 'store'])->name('create');
+
+// Author views
+Route::get('/{author:slug}', [AuthorController::class, 'showDetail'])->name('author-detail');
+
+// Create author
+
+// TODO:
+// update book
+// delete book
 
 // TODO: CONTACT FORM
 Route::get('/', [HomepageController::class, 'show'])->name('homepage');

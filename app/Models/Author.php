@@ -19,4 +19,10 @@ class Author extends Model
     {
         return $this->hasMany(Book::class);
     }
+
+    public function authorName()
+    {
+        $authorName = $this->lastname . ', ' . $this->firstname;
+        return $authorName;
+    }
 }

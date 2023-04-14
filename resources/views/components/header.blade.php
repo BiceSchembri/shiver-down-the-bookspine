@@ -8,7 +8,8 @@
             <a href="{{ route('books') }}" class="text-sm text-blue-600 dark:text-blue-500 hover:underline">Books</a>
             <a href="" class="text-sm text-blue-600 dark:text-blue-500 hover:underline">Reserve</a>
             <a href="" class="text-sm text-blue-600 dark:text-blue-500 hover:underline">Contact</a>
-            <a href="{{route('create-book')}}" class="text-sm text-blue-600 dark:text-blue-500 hover:underline">Add a Book</a>
+            <a href="{{ route('create-book') }}" class="text-sm text-blue-600 dark:text-blue-500 hover:underline">Add Book</a>
+            {{-- <a href="{{ route('createauthor') }}" class="text-sm text-blue-600 dark:text-blue-500 hover:underline">Add Author</a> --}}
             <a href="" class="text-sm text-blue-600 dark:text-blue-500 hover:underline">Login</a>
             <a href="" class="text-sm text-blue-600 dark:text-blue-500 hover:underline">Logout</a>
     </nav>

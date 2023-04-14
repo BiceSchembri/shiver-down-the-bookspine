@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use App\Http\Requests\AuthorRequest;
 use App\Models\Author;
 
 class AuthorController extends Controller
 {
+    use AuthorizesRequests, ValidatesRequests;
+
     public function show()
     {
         $authors = Author::all();
@@ -16,5 +21,27 @@ class AuthorController extends Controller
     public function showDetail(Author $author)
     {
         return view('author', ['author' => $author]);
+    }
+
+    public function createauthor()
+    {
+        return view('createauthor');
+    }
+
+    public function store(AuthorRequest $request)
+    {
+        $authorFirstname = $request->validated()['authorFirstname'];
+        $authorLastname = $request->validated()['authorLastname'];
+        $description = $request->validated()['description'];
+
+        $author = new Author;
+        $author->firstname = $authorFirstname;
+        $author->lastname = $authorLastname;
+        $author->slug = Str::slug($author->firstname . '-' . $author->lastname);
+        $author->description = $description;
+
+        $author->save();
+
+        return redirect('/')->with('success', 'Author added successfully');
     }
 }

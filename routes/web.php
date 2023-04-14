@@ -20,19 +20,22 @@ Route::post('/create-book', [BookController::class, 'store'])->name('create-book
 Route::get('/{author:slug}', [AuthorController::class, 'showDetail'])->name('author-detail');
 
 // Create author
+Route::get('/createauthor', [AuthorController::class, 'createauthor'])->name('createauthor');
+// Route::post('/createauthor', [AuthorController::class, 'store'])->name('createauthor');
 
 // TODO:
 // update book
 // delete book
+// update author
+// delete author - only if no books associated
 
 // TODO: CONTACT FORM
 Route::get('/', [HomepageController::class, 'show'])->name('homepage');
 Route::post('/', [HomepageController::class, 'show'])->name('homepage');
 
-
-// TODO: reserve book
-
-// TODO: post comments
-
 // TODO: login, logout, admin auth
 // TODO: change edit/comment privilegese (only admin can create, update, delete; only registered can comment and reserve)
+
+// TODO: reserve book???
+
+// TODO: post comments

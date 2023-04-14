@@ -23,9 +23,11 @@ class BookRequest extends FormRequest
     {
         return [
             'title' => ['required', 'max:255'],
-            'author' => ['required', 'max:255'],
+            'authorFirstname' => ['max:255'],
+            'authorLastname' => ['max:255'],
             'description' => ['required', 'min:5', 'max:255'],
             'language' => ['required'],
+            'status' => ['required'],
         ];
     }
 
@@ -39,12 +41,13 @@ class BookRequest extends FormRequest
         return [
             'title.required' => 'The title field is required.',
             'title.max' => 'The title may not be greater than :max characters.',
-            'author.required' => 'The author is required (it can be Anonymous, or Various Authors).',
-            'author.max' => 'The author name(s) may not exceed :max characters.',
+            'authorFirstname.max' => 'The author\'s first name(s) may not exceed :max characters.',
+            'authorLastname.max' => 'The author\'s last name(s) may not exceed :max characters.',
             'description.required' => 'Some description is required.',
             'description.min' => 'The description must be at least :min characters.',
             'description.max' => 'The description may not exceed :max characters.',
-            'language' => 'Please specify a language',
+            'language' => 'Please specify a language.',
+            'status' => 'Please specify a status.',
         ];
     }
 }

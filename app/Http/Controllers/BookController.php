@@ -35,19 +35,29 @@ class BookController extends Controller
     public function store(BookRequest $request)
     {
         $title = $request->validated()['title'];
-        $author = $request->validated()['author'];
+        $authorFirstname = $request->validated()['authorFirstname'];
+        $authorLastname = $request->validated()['authorLastname'];
         $description = $request->validated()['description'];
         $language = $request->validated()['language'];
+        $status = $request->validated()['status'];
+
+        // Assign to author if already existing, otherwise create new author
+        $author = Author::firstOrCreate([
+            'firstname' => $authorFirstname,
+            'lastname' => $authorLastname,
+            'slug' => Str::slug($authorFirstname . '-' . $authorLastname)
+        ]);
 
         $book = new Book;
         $book->title = $title;
-        $book->slug = Str::slug($title);
-        $book->language_id = $language;
-        // TODO: findOrCreate author, change to author id?
-        $book->author = $author;
         $book->description = $description;
+        $book->language_id = $language;
+        $book->status = $status;
+        $book->slug = Str::slug($title);
+        $book->author_id = $author->id;
+
         $book->save();
 
-        return redirect('/books')->with('success', 'Your book has been submitted!');
+        return redirect('/books')->with('success', 'Book added successfully');
     }
 }

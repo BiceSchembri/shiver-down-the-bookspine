@@ -13,9 +13,15 @@
         <p class="text-red-500 text-xs mt-2">{{$message}}</p>
         @enderror
 
-        <label for="author" class="block mb-2 uppercase font-bold text-xs text-blue-700">Author: </label>
-        <input type="author" id="author" name="author" value="{{old('author')}}" class="border border-purple-900 p-2 w-full" required>
-        @error('author')
+        <label for="authorFirstname" class="block mb-2 uppercase font-bold text-xs text-blue-700">Author's First Name: </label>
+        <input type="text" id="authorFirstname" name="authorFirstname" value="{{old('authorFirstname')}}" class="border border-purple-900 p-2 w-full" required>
+        @error('authorFirstname')
+        <p class="text-red-500 text-xs mt-2">{{$message}}</p>
+        @enderror
+
+        <label for="authorLastname" class="block mb-2 uppercase font-bold text-xs text-blue-700">Author's Last Name: </label>
+        <input type="text" id="authorLastname" name="authorLastname" value="{{old('authorLastname')}}" class="border border-purple-900 p-2 w-full" required>
+        @error('authorLastname')
         <p class="text-red-500 text-xs mt-2">{{$message}}</p>
         @enderror
 
@@ -40,6 +46,7 @@
             <option value="available">available</option>
             <option value="on hold">on hold</option>
             <option value="reserved">reserved</option>
+        </select>
             @error('status')
         <p class="text-red-500 text-xs mt-2">{{$message}}</p>
         @enderror

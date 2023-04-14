@@ -23,9 +23,9 @@ class AuthorController extends Controller
         return view('author', ['author' => $author]);
     }
 
-    public function createauthor()
+    public function create()
     {
-        return view('createauthor');
+        return view('create-author');
     }
 
     public function store(AuthorRequest $request)

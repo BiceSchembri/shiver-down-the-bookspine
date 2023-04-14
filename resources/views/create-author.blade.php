@@ -1,4 +1,4 @@
-{{-- @extends ('components.layout')
+@extends ('components.layout')
 
 @section('content')
 
@@ -29,6 +29,4 @@
     </form>
 </div>
 
-@endsection --}}
-
-hello world
+@endsection

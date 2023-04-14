@@ -19,13 +19,17 @@ Route::post('/create-book', [BookController::class, 'store'])->name('create-book
 // Author views
 Route::get('/{author:slug}', [AuthorController::class, 'showDetail'])->name('author-detail');
 
+// TOFIX:
 // Create author
-Route::get('/createauthor', [AuthorController::class, 'createauthor'])->name('createauthor');
-// Route::post('/createauthor', [AuthorController::class, 'store'])->name('createauthor');
+Route::get('/create-author', [AuthorController::class, 'create'])->name('create-author');
+Route::post('/create-author', [AuthorController::class, 'store'])->name('create-author');
+
+// Delete book
+Route::delete('/books/{book:slug}', [BookController::class, 'delete'])->name('delete-book');
 
 // TODO:
 // update book
-// delete book
+
 // update author
 // delete author - only if no books associated
 

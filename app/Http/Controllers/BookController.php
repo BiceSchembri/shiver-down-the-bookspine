@@ -69,6 +69,8 @@ class BookController extends Controller
         return view('edit-book', ['book' => $book, 'languages' => Language::all(), 'authors' => Author::all()]);
     }
 
+
+
     public function update(BookRequest $request, Book $book)
     {
         $title = $request->validated()['title'];
@@ -83,12 +85,15 @@ class BookController extends Controller
             'slug' => Str::slug($request->validated()['authorFirstname'] . '-' . $request->validated()['authorLastname'])
         ]);
 
-        $book = new Book;
+        // Update slug only if book title is changed (since slug is based on title)
+        if ($title !== $book->title) {
+            $book->slug = Str::slug($title);
+        }
+
         $book->title = $title;
         $book->description = $description;
         $book->language_id = $language;
         $book->status = $status;
-        $book->slug = Str::slug($title);
         $book->author_id = $author->id;
 
         $book->save();

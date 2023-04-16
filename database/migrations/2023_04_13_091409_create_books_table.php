@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignId('language_id');
             $table->string('status')->default('available');
             $table->text('description');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

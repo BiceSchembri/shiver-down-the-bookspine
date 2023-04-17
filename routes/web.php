@@ -22,6 +22,7 @@ Route::put('/books/{book:slug}/edit-book', [BookController::class, 'update'])->n
 Route::delete('/books/{book:slug}', [BookController::class, 'delete'])->name('delete-book');
 
 // Author views
+Route::get('/authors', [AuthorController::class, 'show'])->name('authors');
 Route::get('/authors/{author:slug}', [AuthorController::class, 'showDetail'])->name('author-detail');
 // Create author
 Route::get('/create-author', [AuthorController::class, 'create'])->name('create-author');

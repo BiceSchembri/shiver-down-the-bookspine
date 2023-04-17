@@ -18,20 +18,10 @@
                     @foreach ($authors as $author)
 
                     <tr>
-                        <td class="border border-gray-700 px-4 py-2 text-left">{{$author->authorLastname}}</td>                        
-                        <td class="border border-gray-700 px-4 py-2 text-left">{{$author->authorLastname}}</td>         
+                        <td class="border border-gray-700 px-4 py-2 text-left">{{$author->lastname}}</td>                        
+                        <td class="border border-gray-700 px-4 py-2 text-left">{{$author->firstname}}</td>         
                         <td class="border border-gray-700 px-4 py-2 text-left"><a href="/authors/{{$author->slug}}">click here for more info
                         </a></td>
-
-                        <td class="border border-gray-700 px-4 py-2 text-left"><a href="/authors/{{$author->slug}}/edit-author">Edit
-                        </a></td>
-                        <td class="border border-gray-700 px-4 py-2 text-left">
-                            <form action="{{ route('delete-author', $author->slug) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit">Delete</button>
-                            </form>
-                        </td>
                     </tr>
 
                     @endforeach

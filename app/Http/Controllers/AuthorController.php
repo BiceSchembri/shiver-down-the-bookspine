@@ -30,19 +30,49 @@ class AuthorController extends Controller
 
     public function store(AuthorRequest $request)
     {
-        $authorFirstname = $request->validated()['authorFirstname'];
-        $authorLastname = $request->validated()['authorLastname'];
+        $firstname = $request->validated()['firstname'];
+        $lastname = $request->validated()['lastname'];
         $description = $request->validated()['description'];
 
         $author = new Author;
-        $author->firstname = $authorFirstname;
-        $author->lastname = $authorLastname;
+        $author->firstname = $firstname;
+        $author->lastname = $lastname;
         $author->slug = Str::slug($author->firstname . '-' . $author->lastname);
         $author->description = $description;
 
         $author->save();
 
-        return redirect('/');
-        // return redirect('/')->with('success', 'Author added successfully');
+        return redirect('/')->with('success', 'Author added successfully');
+    }
+
+    public function delete(Author $author)
+    {
+        $author->delete();
+        return redirect('/authors')->with('success', 'Author deleted successfully');
+    }
+
+    public function edit(Author $author)
+    {
+        return view('edit-author', ['author' => $author]);
+    }
+
+    public function update(AuthorRequest $request, Author $author)
+    {
+        $firstname = $request->validated()['firstname'];
+        $lastname = $request->validated()['lastname'];
+        $description = $request->validated()['description'];
+
+        // Update slug only if book title is changed (since slug is based on title)
+        if ($firstname !== $author->firstname && $lastname !== $author->lastname) {
+            $author->slug = Str::slug($author->firstname . '-' . $author->lastname);
+        }
+
+        $author->firstname = $firstname;
+        $author->lastname = $lastname;
+        $author->description = $description;
+
+        $author->save();
+
+        return redirect('/authors')->with('success', 'Author updated successfully');
     }
 }

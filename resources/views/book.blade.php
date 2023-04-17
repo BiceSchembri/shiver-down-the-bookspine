@@ -26,9 +26,9 @@
 
 <section>
 
-    <x-post-comment />
-    <x-post-comment />
-    <x-post-comment />
+    <x-book-comment />
+    <x-book-comment />
+    <x-book-comment />
 
 </section>
 

@@ -4,7 +4,7 @@
 
 <h1 class="font-bold uppercase">Edit Book</h1>
 <div class="m-6 max-w-lg mx-auto bg-amber-100 border border-gray-200 p-6 rounded-xl">
-    <form action="#" method="POST">
+    <form action="edit-book" method="POST">
         @csrf
         @method('PUT')
 

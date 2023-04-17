@@ -65,7 +65,6 @@ class BookController extends Controller
 
     public function edit(Book $book)
     {
-        // return $book->title;
         return view('edit-book', ['book' => $book, 'languages' => Language::all(), 'authors' => Author::all()]);
     }
 

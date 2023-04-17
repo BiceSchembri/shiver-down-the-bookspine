@@ -22,8 +22,8 @@ class AuthorRequest extends FormRequest
     public function rules()
     {
         return [
-            'authorFirstname' => ['max:255'],
-            'authorLastname' => ['max:255'],
+            'firstname' => ['max:255'],
+            'lastname' => ['max:255'],
             'description' => ['required', 'min:5', 'max:255'],
         ];
     }

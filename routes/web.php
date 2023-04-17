@@ -38,8 +38,6 @@ Route::delete('/authors/{author:slug}', [AuthorController::class, 'delete'])->na
 Route::get('/register', [UserController::class, 'register'])->name('register');
 Route::post('/register', [UserController::class, 'store'])->name('register');
 
-
-
 // TODO: login, logout, admin auth
 // TODO: change edit/comment privileges (only admin can create, update, delete; only registered can comment and reserve)
 

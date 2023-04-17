@@ -2,6 +2,8 @@
 
 @section('content')
 
+<x-success />
+
 <div>
 <p>
     Browse the books of this little library of horrors.

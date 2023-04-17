@@ -2,6 +2,8 @@
 
 @section('content')
 
+<x-success />
+
 <div class="bg-gray-900 text-white">
     <div class="container mx-auto mt-10">
         <h1 class="text-3xl font-bold mb-5">Books</h1>

@@ -42,7 +42,7 @@ class AuthorController extends Controller
 
         $author->save();
 
-        return redirect('/')->with('success', 'Author added successfully');
+        return redirect('/authors')->with('success', 'Author added successfully');
     }
 
     public function delete(Author $author)

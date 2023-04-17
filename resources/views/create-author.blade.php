@@ -7,15 +7,15 @@
     <form method="POST" action="{{ route('create-author') }}">
         @csrf
 
-        <label for="authorFirstname" class="block mb-2 uppercase font-bold text-xs text-blue-700">Author's First Name: </label>
-        <input type="text" id="authorFirstname" name="authorFirstname" value="{{old('authorFirstname')}}" class="border border-purple-900 p-2 w-full" required>
-        @error('authorFirstname')
+        <label for="firstname" class="block mb-2 uppercase font-bold text-xs text-blue-700">Author's First Name: </label>
+        <input type="text" id="firstname" name="firstname" value="{{old('firstname')}}" class="border border-purple-900 p-2 w-full" required>
+        @error('firstname')
         <p class="text-red-500 text-xs mt-2">{{$message}}</p>
         @enderror
 
-        <label for="authorLastname" class="block mb-2 uppercase font-bold text-xs text-blue-700">Author's Last Name: </label>
-        <input type="text" id="authorLastname" name="authorLastname" value="{{old('authorLastname')}}" class="border border-purple-900 p-2 w-full" required>
-        @error('authorLastname')
+        <label for="lastname" class="block mb-2 uppercase font-bold text-xs text-blue-700">Author's Last Name: </label>
+        <input type="text" id="lastname" name="lastname" value="{{old('lastname')}}" class="border border-purple-900 p-2 w-full" required>
+        @error('lastname')
         <p class="text-red-500 text-xs mt-2">{{$message}}</p>
         @enderror
 

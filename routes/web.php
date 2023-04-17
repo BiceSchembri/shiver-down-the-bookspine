@@ -17,31 +17,29 @@ Route::get('/books/{book:slug}', [BookController::class, 'showDetail'])->name('b
 Route::get('/create-book', [BookController::class, 'create'])->name('create-book');
 Route::post('/create-book', [BookController::class, 'store'])->name('create-book');
 
-// Author views
-Route::get('/{author:slug}', [AuthorController::class, 'showDetail'])->name('author-detail');
+// Edit book
+Route::get('/books/{book:slug}/edit-book', [BookController::class, 'edit'])->name('edit-book');
+Route::put('/books/{book:slug}/edit-book', [BookController::class, 'update'])->name('edit-book');
 
 // Delete book
 Route::delete('/books/{book:slug}', [BookController::class, 'delete'])->name('delete-book');
 
-// Edit book
-Route::get('/books/{book:slug}/edit-book', [BookController::class, 'edit'])->name('edit-book');
-Route::patch('/books/{book:slug}/edit-book', [BookController::class, 'update'])->name('edit-book');
+// Author views
+Route::get('/authors/{author:slug}', [AuthorController::class, 'showDetail'])->name('author-detail');
+
+// Create author
+Route::get('/create-author', [AuthorController::class, 'create'])->name('create-author');
+Route::post('/create-author', [AuthorController::class, 'store'])->name('create-author');
+
+// TODO:
+// update author
+// delete author - only if no books associated
 
 // Register user
 Route::get('/register', [UserController::class, 'register'])->name('register');
 Route::post('/register', [UserController::class, 'store'])->name('register');
 
-// TODO:
-// Fix create author (gives 404 error)
-Route::get('/create-author', [AuthorController::class, 'create'])->name('create-author');
-Route::post('/create-author', [AuthorController::class, 'store'])->name('create-author');
-// TODO:
-// update author
-// delete author - only if no books associated
-
 // TODO: CONTACT FORM
-Route::get('/', [HomepageController::class, 'show'])->name('homepage');
-Route::post('/', [HomepageController::class, 'show'])->name('homepage');
 
 // TODO: login, logout, admin auth
 // TODO: change edit/comment privilegese (only admin can create, update, delete; only registered can comment and reserve)

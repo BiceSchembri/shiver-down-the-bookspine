@@ -42,6 +42,7 @@ class AuthorController extends Controller
 
         $author->save();
 
-        return redirect('/')->with('success', 'Author added successfully');
+        return redirect('/');
+        // return redirect('/')->with('success', 'Author added successfully');
     }
 }

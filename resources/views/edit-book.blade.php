@@ -6,7 +6,7 @@
 <div class="m-6 max-w-lg mx-auto bg-amber-100 border border-gray-200 p-6 rounded-xl">
     <form action="#" method="POST">
         @csrf
-        @method('PATCH')
+        @method('PUT')
 
         <label for="title" class="block mb-2 uppercase font-bold text-xs text-blue-700">Title: </label>
         <input type="text" id="title" name="title" value="{{$book->title}}" class="border border-purple-900 p-2 w-full" required>

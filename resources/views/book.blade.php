@@ -11,6 +11,17 @@
     <p>{{$book->status}}</p>
 </section>
 
+{{-- EDIT AND DELETE WILL ONLY BE VISIBLE TO ADMIN --}}
+<a href="/books/{{$book->slug}}/edit-book" class="bg-blue-400 text-white rounded mt-2 p-1 hover:bg-blue-500">Edit Book </a>
+
+<form action="{{ route('delete-book', $book->slug) }}" method="POST">
+    @csrf
+    @method('DELETE')
+    <button type="submit" class="bg-blue-400 text-white rounded mt-2 p-1 hover:bg-blue-500">Delete Book</button>
+</form>
+
+{{-- START OF COMMENT SECTION --}}
+
 <h2 class="font-bold text-xl">Comments</h2>
 
 <section>

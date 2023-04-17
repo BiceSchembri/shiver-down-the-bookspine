@@ -52,7 +52,14 @@
         <p class="text-red-500 text-xs mt-2">{{$message}}</p>
         @enderror
 
-        <button type="submit" class="bg-blue-400 text-white rounded mt-2 p-1 hover:bg-blue-500">Submit</button>
+        <button type="submit" class="bg-blue-400 text-white rounded mt-2 p-1 hover:bg-blue-500">Update Book</button>
+    </form>
+
+    {{-- ADD FORM TO DELETE BOOK --}}
+    <form action="{{ route('delete-book', $book->slug) }}" method="POST">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="bg-blue-400 text-white rounded mt-2 p-1 hover:bg-blue-500">Delete Book</button>
     </form>
 </div>
 

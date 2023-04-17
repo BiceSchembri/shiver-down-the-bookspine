@@ -28,10 +28,10 @@
                         </a></td>
                         <td class="border border-gray-700 px-4 py-2 text-left">
                             <form action="{{ route('delete-book', $book->slug) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit">Delete</button>
-                        </form>
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit">Delete</button>
+                            </form>
                         </td>
                     </tr>
 

@@ -14,7 +14,11 @@
 <h2 class="font-bold text-xl">Comments</h2>
 
 <section>
-<x-post-comment />
+
+    <x-post-comment />
+    <x-post-comment />
+    <x-post-comment />
+
 </section>
 
 @endsection

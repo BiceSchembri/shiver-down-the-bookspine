@@ -10,6 +10,7 @@
             <a href="" class="text-sm text-blue-600 dark:text-blue-500 hover:underline">Contact</a>
             <a href="{{ route('create-book') }}" class="text-sm text-blue-600 dark:text-blue-500 hover:underline">Add Book</a>
             <a href="{{ route('create-author') }}" class="text-sm text-blue-600 dark:text-blue-500 hover:underline">Add Author</a>
+            <a href="{{ route('register') }}" class="text-sm text-blue-600 dark:text-blue-500 hover:underline">Register</a>
             <a href="" class="text-sm text-blue-600 dark:text-blue-500 hover:underline">Login</a>
             <a href="" class="text-sm text-blue-600 dark:text-blue-500 hover:underline">Logout</a>
     </nav>

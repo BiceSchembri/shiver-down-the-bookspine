@@ -69,8 +69,6 @@ class BookController extends Controller
         return view('edit-book', ['book' => $book, 'languages' => Language::all(), 'authors' => Author::all()]);
     }
 
-
-
     public function update(BookRequest $request, Book $book)
     {
         $title = $request->validated()['title'];

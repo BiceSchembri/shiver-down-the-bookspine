@@ -20,5 +20,4 @@
     
     @include('components.footer')
 
-
 </html>

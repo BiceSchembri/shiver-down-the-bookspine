@@ -3,6 +3,7 @@
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 // Homepage
@@ -26,6 +27,10 @@ Route::delete('/books/{book:slug}', [BookController::class, 'delete'])->name('de
 Route::get('/books/{book:slug}/edit-book', [BookController::class, 'edit'])->name('edit-book');
 Route::patch('/books/{book:slug}/edit-book', [BookController::class, 'update'])->name('edit-book');
 
+// Register user
+Route::get('/register', [UserController::class, 'register'])->name('register');
+Route::post('/register', [UserController::class, 'store'])->name('register');
+
 // TODO:
 // Fix create author (gives 404 error)
 Route::get('/create-author', [AuthorController::class, 'create'])->name('create-author');
@@ -41,6 +46,6 @@ Route::post('/', [HomepageController::class, 'show'])->name('homepage');
 // TODO: login, logout, admin auth
 // TODO: change edit/comment privilegese (only admin can create, update, delete; only registered can comment and reserve)
 
-// TODO: reserve book???
-
 // TODO: post comments
+
+// TODO: reserve book???

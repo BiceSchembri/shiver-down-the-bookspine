@@ -5,7 +5,7 @@
 <section>
     <h1>{{$book->title}}</h1>
     {{-- TODO: allow for more authors --}}
-    <p><a href="/authors/{{$book->author->slug}}">{{$book->author->authorName()}}</a></p>
+    <p><a href="/authors/detail/{{$book->author->slug}}">{{$book->author->authorName()}}</a></p>
     <p>{{$book->language->name}}</p>
     <p>{{$book->description}}</p>
     <p>{{$book->status}}</p>

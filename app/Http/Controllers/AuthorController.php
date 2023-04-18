@@ -47,8 +47,13 @@ class AuthorController extends Controller
 
     public function delete(Author $author)
     {
-        $author->delete();
-        return redirect('/authors')->with('success', 'Author deleted successfully');
+        if ($author->book()->count() > 0) {
+            // Author has associated books
+            return redirect('/authors')->with('fail', 'Author could not be deleted because they have books associated with them. Try deleting the books first.');
+        } else {
+            $author->delete();
+            return redirect('/authors')->with('success', 'Author deleted successfully');
+        }
     }
 
     public function edit(Author $author)

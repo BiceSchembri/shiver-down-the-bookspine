@@ -3,6 +3,7 @@
 @section('content')
 
 <x-success />
+<x-fail />
 
 <div class="bg-gray-900 text-white">
     <div class="container mx-auto mt-10">

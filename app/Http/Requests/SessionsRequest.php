@@ -25,7 +25,6 @@ class SessionsRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'email.required' => 'The email field is required.',
             'email.exists' => 'The provided credentials are invalid.',
             'password.required' => 'The password is required.',
         ];

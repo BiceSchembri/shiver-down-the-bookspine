@@ -4,6 +4,7 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\SessionsController;
 use Illuminate\Support\Facades\Route;
 
 // Homepage
@@ -37,9 +38,14 @@ Route::delete('/authors/delete/{author:slug}', [AuthorController::class, 'delete
 Route::get('/register', [UserController::class, 'register'])->middleware('guest')->name('register');
 Route::post('/register', [UserController::class, 'store'])->middleware('guest')->name('register');
 
-// TODO: login, logout, admin auth
-// TODO: change edit/comment privileges (only admin can create, update, delete; only registered can comment and reserve)
+// Login user
+Route::get('/login', [SessionsController::class, 'create'])->middleware('guest')->name('login');
+Route::post('/login', [SessionsController::class, 'store'])->middleware('guest')->name('login');
 
+// Logout user
+Route::post('/logout', [SessionsController::class, 'destroy'])->middleware('auth')->name('logout');
+
+// TODO: admin auth (CUD, view soft deletes)
+// TODO: logged in user auth (post comments? add to favourites?)
 // TODO: CONTACT FORM
-// TODO: post comments
-// TODO: reserve book???
+// TODO: manyToMany rel. for authors and books

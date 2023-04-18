@@ -36,8 +36,8 @@ class UserRequest extends FormRequest
             'lastname.min' => 'The last name must be at least :min characters.',
             'lastname.max' => 'The last name may not exceed :max characters.',
 
-            'username.min' => 'The first name must be at least :min characters.',
-            'username.max' => 'The first name may not exceed :max characters.',
+            'username.min' => 'The username must be at least :min characters.',
+            'username.max' => 'The username may not exceed :max characters.',
             'username.required' => 'The username is required.',
 
             'email.email' => 'The email must be a valid email address.',

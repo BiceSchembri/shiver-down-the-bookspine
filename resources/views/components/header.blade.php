@@ -11,10 +11,24 @@
             <a href="" class="text-sm text-blue-600 dark:text-blue-500 hover:underline">Contact</a> --}}
             <a href="{{ route('create-book') }}" class="text-sm text-blue-600 dark:text-blue-500 hover:underline">Add Book</a>
             <a href="{{ route('create-author') }}" class="text-sm text-blue-600 dark:text-blue-500 hover:underline">Add Author</a>
-            @guest
-            <a href="{{ route('register') }}" class="text-sm text-blue-600 dark:text-blue-500 hover:underline">Register</a>
-            @endguest
-            <a href="" class="text-sm text-blue-600 dark:text-blue-500 hover:underline">Login</a>
-            <a href="" class="text-sm text-blue-600 dark:text-blue-500 hover:underline">Logout</a>
+            
+            {{-- LOGGED IN --}}
+            @auth
+                {{-- Welcome user --}}
+                <span>Welcome {{auth()->user()->firstname}}</span>
+                {{-- Logout --}}
+                <form method="POST" action="/logout">
+                    @csrf
+                <button type="submit" class="text-sm text-blue-600 dark:text-blue-500 hover:underline">Logout</button>
+                </form>
+            {{-- NOT LOGGED IN --}}
+            @else
+                {{-- Register link --}}
+                <a href="{{ route('register') }}" class="text-sm text-blue-600 dark:text-blue-500 hover:underline">Register</a>
+                {{-- Login link --}}
+                <a href="{{ route('login') }}" class="text-sm text-blue-600 dark:text-blue-500 hover:underline">Login</a>
+            @endauth
+            
+
     </nav>
 </header>

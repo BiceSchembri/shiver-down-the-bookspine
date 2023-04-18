@@ -20,7 +20,7 @@ class AuthorController extends Controller
 
     public function showDetail(Author $author)
     {
-        return view('author', ['author' => $author]);
+        return view('author', ['author' => $author, 'book' => $author->book]);
     }
 
     public function create()

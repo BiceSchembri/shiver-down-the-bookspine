@@ -6,6 +6,7 @@
             </a>
             <a href="{{ route('homepage') }}" class="text-sm text-blue-600 dark:text-blue-500 hover:underline">Home</a>
             <a href="{{ route('books') }}" class="text-sm text-blue-600 dark:text-blue-500 hover:underline">Books</a>
+            <a href="{{ route('authors') }}" class="text-sm text-blue-600 dark:text-blue-500 hover:underline">Authors</a>
             {{-- <a href="" class="text-sm text-blue-600 dark:text-blue-500 hover:underline">Reserve</a>
             <a href="" class="text-sm text-blue-600 dark:text-blue-500 hover:underline">Contact</a> --}}
             <a href="{{ route('create-book') }}" class="text-sm text-blue-600 dark:text-blue-500 hover:underline">Add Book</a>

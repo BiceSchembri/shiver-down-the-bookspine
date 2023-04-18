@@ -5,7 +5,7 @@
 <div>
     <h1>{{$author->authorName()}}</h1>
 
-    @foreach($author->book as $book)
+    @foreach($book as $book)
     <p><a href="/books/{{$book->slug}}">{{$book->title}}</a></p>
 @endforeach
 
@@ -19,5 +19,8 @@
     @method('DELETE')
     <button type="submit" class="bg-blue-400 text-white rounded mt-2 p-1 hover:bg-blue-500">Delete Author</button>
 </form>
+
+<a href="{{ route('authors') }}" class="text-sm text-blue-600 dark:text-blue-500 hover:underline">Back to Authors</a>
+
 
 @endsection

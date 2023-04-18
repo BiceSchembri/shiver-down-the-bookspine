@@ -20,6 +20,8 @@
     <button type="submit" class="bg-blue-400 text-white rounded mt-2 p-1 hover:bg-blue-500">Delete Book</button>
 </form>
 
+<a href="{{ route('books') }}" class="text-sm text-blue-600 dark:text-blue-500 hover:underline">Back to Books</a>
+
 {{-- START OF COMMENT SECTION --}}
 
 <h2 class="font-bold text-xl">Comments</h2>

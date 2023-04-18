@@ -31,7 +31,6 @@ Route::post('/create-author', [AuthorController::class, 'store'])->name('create-
 Route::get('/authors/{author:slug}/edit-author', [AuthorController::class, 'edit'])->name('edit-author');
 Route::put('/authors/{author:slug}/edit-author', [AuthorController::class, 'update'])->name('edit-author');
 // Delete author
-// TODO: only if no books associated
 Route::delete('/authors/{author:slug}', [AuthorController::class, 'delete'])->name('delete-author');
 
 // Register user

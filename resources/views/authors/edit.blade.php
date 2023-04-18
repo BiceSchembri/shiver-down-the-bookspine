@@ -4,7 +4,7 @@
 
 <h1 class="font-bold uppercase">Edit Author</h1>
 <div class="m-6 max-w-lg mx-auto bg-amber-100 border border-gray-200 p-6 rounded-xl">
-    <form action="edit-author" method="POST">
+    <form action="" method="POST">
         @csrf
         @method('PUT')
 
@@ -21,7 +21,7 @@
         @enderror
 
         <label for="description" class="block mb-2 uppercase font-bold text-xs text-blue-700">Description: </label>
-        <input type="text" id="description" name="description" value="{{$author->description}}" class="border border-purple-900 p-2 w-full" required>
+        <input type="text" id="description" name="description" value="{{$author->description}}" class="border border-purple-900 p-2 w-full">
         @error('description')
         <p class="text-red-500 text-xs mt-2">{{$message}}</p>
         @enderror

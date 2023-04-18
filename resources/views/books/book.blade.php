@@ -12,7 +12,7 @@
 </section>
 
 {{-- EDIT AND DELETE WILL ONLY BE VISIBLE TO ADMIN --}}
-<a href="/books/{{$book->slug}}/edit-book" class="bg-blue-400 text-white rounded mt-2 p-1 hover:bg-blue-500">Edit Book </a>
+<a href="/books/edit/{{$book->slug}}" class="bg-blue-400 text-white rounded mt-2 p-1 hover:bg-blue-500">Edit Book </a>
 
 <form action="{{ route('delete-book', $book->slug) }}" method="POST">
     @csrf

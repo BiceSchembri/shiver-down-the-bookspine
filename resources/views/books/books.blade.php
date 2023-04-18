@@ -21,9 +21,9 @@
                     @foreach ($books as $book)
 
                     <tr>
-                        <td class="border border-gray-700 px-4 py-2 text-left"><a href="/books/{{$book->slug}}">{{$book->title}}
+                        <td class="border border-gray-700 px-4 py-2 text-left"><a href="/books/detail/{{$book->slug}}">{{$book->title}}
                         </a></td>
-                        <td class="border border-gray-700 px-4 py-2 text-left"><a href="/authors/{{$book->author->slug}}">{{$book->author->authorName()}}</a></td>
+                        <td class="border border-gray-700 px-4 py-2 text-left"><a href="/authors/detail/{{$book->author->slug}}">{{$book->author->authorName()}}</a></td>
                         <td class="border border-gray-700 px-4 py-2 text-left">{{$book->language->name}}</td>
                         <td class="border border-gray-700 px-4 py-2 text-left">{{$book->status}}</td>
                      </tr>

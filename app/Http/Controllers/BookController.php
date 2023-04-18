@@ -17,17 +17,17 @@ class BookController extends Controller
     public function show()
     {
         $books = Book::all();
-        return view('books', ['books' => $books]);
+        return view('books.books', ['books' => $books]);
     }
 
     public function showDetail(Book $book)
     {
-        return view('book', ['book' => $book]);
+        return view('books.book', ['book' => $book]);
     }
 
     public function create()
     {
-        return view('create-book', ['languages' => Language::all(), 'authors' => Author::all()]);
+        return view('books.create', ['languages' => Language::all(), 'authors' => Author::all()]);
     }
 
     public function store(BookRequest $request)
@@ -54,18 +54,18 @@ class BookController extends Controller
 
         $book->save();
 
-        return redirect('/books')->with('success', 'Book added successfully');
+        return redirect('books')->with('success', 'Book added successfully');
     }
 
     public function delete(Book $book)
     {
         $book->delete();
-        return redirect('/books')->with('success', 'Book deleted successfully');
+        return redirect('books')->with('success', 'Book deleted successfully');
     }
 
     public function edit(Book $book)
     {
-        return view('edit-book', ['book' => $book, 'languages' => Language::all(), 'authors' => Author::all()]);
+        return view('books.edit', ['book' => $book, 'languages' => Language::all(), 'authors' => Author::all()]);
     }
 
     public function update(BookRequest $request, Book $book)
@@ -95,6 +95,6 @@ class BookController extends Controller
 
         $book->save();
 
-        return redirect('/books')->with('success', 'Book updated successfully');
+        return redirect('books')->with('success', 'Book updated successfully');
     }
 }

@@ -11,27 +11,27 @@ Route::get('/', [HomepageController::class, 'show'])->name('homepage');
 
 // Book views
 Route::get('/books', [BookController::class, 'show'])->name('books');
-Route::get('/books/{book:slug}', [BookController::class, 'showDetail'])->name('book-detail');
+Route::get('/books/detail/{book:slug}', [BookController::class, 'showDetail'])->name('book-detail');
 // Create book
-Route::get('/create-book', [BookController::class, 'create'])->name('create-book');
-Route::post('/create-book', [BookController::class, 'store'])->name('create-book');
+Route::get('/books/create', [BookController::class, 'create'])->name('create-book');
+Route::post('/books/create', [BookController::class, 'store'])->name('create-book');
 // Edit book
-Route::get('/books/{book:slug}/edit-book', [BookController::class, 'edit'])->name('edit-book');
-Route::put('/books/{book:slug}/edit-book', [BookController::class, 'update'])->name('edit-book');
+Route::get('/books/edit/{book:slug}', [BookController::class, 'edit'])->name('edit');
+Route::put('/books/edit/{book:slug}', [BookController::class, 'update'])->name('edit');
 // Delete book
-Route::delete('/books/{book:slug}', [BookController::class, 'delete'])->name('delete-book');
+Route::delete('/books/delete/{book:slug}', [BookController::class, 'delete'])->name('delete-book');
 
 // Author views
 Route::get('/authors', [AuthorController::class, 'show'])->name('authors');
-Route::get('/authors/{author:slug}', [AuthorController::class, 'showDetail'])->name('author-detail');
+Route::get('/authors/detail/{author:slug}', [AuthorController::class, 'showDetail'])->name('author-detail');
 // Create author
-Route::get('/create-author', [AuthorController::class, 'create'])->name('create-author');
-Route::post('/create-author', [AuthorController::class, 'store'])->name('create-author');
+Route::get('/authors/create', [AuthorController::class, 'create'])->name('create-author');
+Route::post('/authors/create', [AuthorController::class, 'store'])->name('create-author');
 // Edit author
-Route::get('/authors/{author:slug}/edit-author', [AuthorController::class, 'edit'])->name('edit-author');
-Route::put('/authors/{author:slug}/edit-author', [AuthorController::class, 'update'])->name('edit-author');
+Route::get('/authors/edit/{author:slug}', [AuthorController::class, 'edit'])->name('edit');
+Route::put('/authors/edit/{author:slug}', [AuthorController::class, 'update'])->name('edit');
 // Delete author
-Route::delete('/authors/{author:slug}', [AuthorController::class, 'delete'])->name('delete-author');
+Route::delete('/authors/delete/{author:slug}', [AuthorController::class, 'delete'])->name('delete-author');
 
 // Register user
 Route::get('/register', [UserController::class, 'register'])->name('register');

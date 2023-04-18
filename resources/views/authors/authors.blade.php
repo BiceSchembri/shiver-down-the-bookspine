@@ -23,7 +23,7 @@
                     <tr>
                         <td class="border border-gray-700 px-4 py-2 text-left">{{$author->lastname}}</td>                        
                         <td class="border border-gray-700 px-4 py-2 text-left">{{$author->firstname}}</td>         
-                        <td class="border border-gray-700 px-4 py-2 text-left"><a href="/authors/{{$author->slug}}">click here for more info
+                        <td class="border border-gray-700 px-4 py-2 text-left"><a href="/authors/detail/{{$author->slug}}">click here for more info
                         </a></td>
                     </tr>
 

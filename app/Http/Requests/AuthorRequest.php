@@ -24,7 +24,7 @@ class AuthorRequest extends FormRequest
         return [
             'firstname' => ['max:255'],
             'lastname' => ['max:255'],
-            'description' => ['required', 'min:5', 'max:255'],
+            'description' => ['max:255'],
         ];
     }
 
@@ -38,8 +38,6 @@ class AuthorRequest extends FormRequest
         return [
             'authorFirstname.max' => 'The author\'s first name(s) may not exceed :max characters.',
             'authorLastname.max' => 'The author\'s last name(s) may not exceed :max characters.',
-            'description.required' => 'Some description is required.',
-            'description.min' => 'The description must be at least :min characters.',
             'description.max' => 'The description may not exceed :max characters.',
         ];
     }

@@ -12,20 +12,20 @@ class UserController extends Controller
 {
     use AuthorizesRequests, ValidatesRequests;
 
-    public function show()
-    {
-        $users = User::all();
-        return view('users', ['users' => $users]);
-    }
+    // public function show()
+    // {
+    //     $users = User::all();
+    //     return view('users.users', ['users' => $users]);
+    // }
 
-    public function showDetail(User $user)
-    {
-        return view('user', ['user' => $user]);
-    }
+    // public function showDetail(User $user)
+    // {
+    //     return view('users.user', ['user' => $user]);
+    // }
 
     public function register()
     {
-        return view('register');
+        return view('users.register');
     }
 
     public function store(UserRequest $request)

@@ -15,17 +15,17 @@ class AuthorController extends Controller
     public function show()
     {
         $authors = Author::all();
-        return view('authors', ["authors" => $authors]);
+        return view('authors.authors', ["authors" => $authors]);
     }
 
     public function showDetail(Author $author)
     {
-        return view('author', ['author' => $author, 'book' => $author->book]);
+        return view('authors.author', ['author' => $author, 'book' => $author->book]);
     }
 
     public function create()
     {
-        return view('create-author');
+        return view('authors.create');
     }
 
     public function store(AuthorRequest $request)
@@ -42,23 +42,23 @@ class AuthorController extends Controller
 
         $author->save();
 
-        return redirect('/authors')->with('success', 'Author added successfully');
+        return redirect('authors')->with('success', 'Author added successfully');
     }
 
     public function delete(Author $author)
     {
         if ($author->book()->count() > 0) {
             // Author has associated books
-            return redirect('/authors')->with('fail', 'Author could not be deleted because they have books associated with them. Try deleting the books first.');
+            return redirect('authors')->with('fail', 'Author could not be deleted because they have books associated with them. Try deleting the books first.');
         } else {
             $author->delete();
-            return redirect('/authors')->with('success', 'Author deleted successfully');
+            return redirect('authors')->with('success', 'Author deleted successfully');
         }
     }
 
     public function edit(Author $author)
     {
-        return view('edit-author', ['author' => $author]);
+        return view('authors.edit', ['author' => $author]);
     }
 
     public function update(AuthorRequest $request, Author $author)
@@ -78,6 +78,6 @@ class AuthorController extends Controller
 
         $author->save();
 
-        return redirect('/authors')->with('success', 'Author updated successfully');
+        return redirect('authors')->with('success', 'Author updated successfully');
     }
 }

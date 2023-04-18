@@ -34,8 +34,8 @@ Route::put('/authors/edit/{author:slug}', [AuthorController::class, 'update'])->
 Route::delete('/authors/delete/{author:slug}', [AuthorController::class, 'delete'])->name('delete-author');
 
 // Register user
-Route::get('/register', [UserController::class, 'register'])->name('register');
-Route::post('/register', [UserController::class, 'store'])->name('register');
+Route::get('/register', [UserController::class, 'register'])->middleware('guest')->name('register');
+Route::post('/register', [UserController::class, 'store'])->middleware('guest')->name('register');
 
 // TODO: login, logout, admin auth
 // TODO: change edit/comment privileges (only admin can create, update, delete; only registered can comment and reserve)

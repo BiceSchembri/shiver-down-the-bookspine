@@ -22,7 +22,7 @@ class UserController extends Controller
     //     return view('users.user', ['user' => $user]);
     // }
 
-    public function register()
+    public function create()
     {
         return view('users.register');
     }

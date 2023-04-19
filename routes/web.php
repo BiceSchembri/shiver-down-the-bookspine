@@ -5,6 +5,7 @@ use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SessionsController;
+use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 
 // Homepage
@@ -35,7 +36,7 @@ Route::put('/authors/edit/{author:slug}', [AuthorController::class, 'update'])->
 Route::delete('/authors/delete/{author:slug}', [AuthorController::class, 'delete'])->name('delete-author');
 
 // Register user
-Route::get('/register', [UserController::class, 'register'])->middleware('guest')->name('register');
+Route::get('/register', [UserController::class, 'create'])->middleware('guest')->name('register');
 Route::post('/register', [UserController::class, 'store'])->middleware('guest')->name('register');
 
 // Login user
@@ -45,7 +46,10 @@ Route::post('/login', [SessionsController::class, 'store'])->middleware('guest')
 // Logout user
 Route::post('/logout', [SessionsController::class, 'destroy'])->middleware('auth')->name('logout');
 
+// TODO: post comments (only logged in users)
+Route::post('/books/detail/{book:slug}/comments', [CommentController::class, 'store'])->middleware('auth')->name('comments');
+
 // TODO: admin auth (CUD, view soft deletes)
-// TODO: logged in user auth (post comments? add to favourites?)
-// TODO: CONTACT FORM
+// TODO: contact form (only logged in users)
+// TODO: user profile page?
 // TODO: manyToMany rel. for authors and books

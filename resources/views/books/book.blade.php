@@ -36,9 +36,7 @@
     {{-- START OF COMMENT SECTION --}}
     <h2 class="font-bold text-xl mt-10 mb-5">Comments</h2>
     <section>
-        <x-book-comment class="mb-4"/>
-        <x-book-comment class="mb-4"/>
-        <x-book-comment class="mb-4"/>
+        <x-book-comment :book=$book class="mb-4"/>
     </section>
 </section>
 

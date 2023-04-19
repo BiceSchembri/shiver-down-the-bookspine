@@ -21,5 +21,11 @@ class CommentFactory extends Factory
             'user_id' => 1,
             'body' => fake()->text()
         ];
+
+        // return [
+        //     'book_id' => Book::factory(),
+        //     'user_id' => User::factory(),
+        //     'body' => $this->fake()->text()
+        // ];
     }
 }

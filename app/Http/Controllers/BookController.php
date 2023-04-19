@@ -22,6 +22,7 @@ class BookController extends Controller
 
     public function showDetail(Book $book)
     {
+        // dd($book->comments);
         return view('books.book', ['book' => $book]);
     }
 

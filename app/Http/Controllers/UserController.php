@@ -29,20 +29,6 @@ class UserController extends Controller
 
     public function store(UserRequest $request)
     {
-        // $firstname = $request->validated()['firstname'];
-        // $lastname = $request->validated()['lastname'];
-        // $username = $request->validated()['username'];
-        // $email = $request->validated()['email'];
-        // $password = $request->validated()['password'];
-
-        // $user = new User;
-        // $user->firstname = $firstname;
-        // $user->lastname = $lastname;
-        // $user->username = $username;
-        // $user->email = $email;
-        // $user->password = $password;
-        // $user->save();
-
         $attributes = [
             'firstname' => $request->validated()['firstname'],
             'lastname' => $request->validated()['lastname'],
@@ -58,8 +44,6 @@ class UserController extends Controller
 
         return redirect('/')->with('success', 'You registered successfully');
     }
-
-
 
     // public function delete(User $user)
     // {

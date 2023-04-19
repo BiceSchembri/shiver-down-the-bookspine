@@ -21,7 +21,8 @@ class UserRequest extends FormRequest
             'lastname' => ['required', 'min:1', 'max:255'],
             'username' => ['required', 'min:5', 'max:255'],
             'email' => ['required', 'email', 'max:255', 'unique:users,email'],
-            'password' => ['required', 'min:8', 'max:255'],
+            'password' => ['required', 'min:8', 'max:255', 'confirmed'],
+            'password_confirmation' => ['required']
         ];
     }
 
@@ -48,6 +49,9 @@ class UserRequest extends FormRequest
             'password.required' => 'The password is required.',
             'password.min' => 'The password must be at least :min characters.',
             'password.max' => 'The password may not exceed :max characters.',
+            'password.confirmed' => 'The password confirmation doesn\'t match',
+
+            'password_confirmation.required' => 'Please confirm the password.'
         ];
     }
 }

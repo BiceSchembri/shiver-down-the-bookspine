@@ -16,8 +16,14 @@
         @enderror
 
         <label for="password" class="block mb-2 uppercase font-bold text-xs text-blue-700">Password: </label>
-        <input type="text" id="password" name="password" value="{{old('password')}}" class="border border-purple-900 p-2 w-full" required>
+        <input type="password" id="password" name="password" value="{{old('password')}}" class="border border-purple-900 p-2 w-full" required>
         @error('password')
+        <p class="text-red-500 text-xs mt-2">{{$message}}</p>
+        @enderror
+
+        <label for="password_confirmation" class="block mb-2 uppercase font-bold text-xs text-blue-700">Confirm Password: </label>
+        <input type="password" id="password_confirmation" name="password_confirmation" value="" class="border border-purple-900 p-2 w-full" required>
+        @error('password_confirmation')
         <p class="text-red-500 text-xs mt-2">{{$message}}</p>
         @enderror
 

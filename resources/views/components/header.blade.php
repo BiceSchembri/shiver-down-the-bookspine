@@ -19,14 +19,14 @@
                 {{-- Logout --}}
                 <form method="POST" action="/logout">
                     @csrf
-                <button type="submit" class="text-sm text-blue-600 dark:text-blue-500 hover:underline">Logout</button>
+                <button type="submit" class="text-sm text-blue-600 dark:text-blue-500 hover:underline">Log Out</button>
                 </form>
             {{-- NOT LOGGED IN --}}
             @else
                 {{-- Register link --}}
-                <a href="{{ route('register') }}" class="text-sm text-blue-600 dark:text-blue-500 hover:underline">Register</a>
+                <a href="{{ route('register') }}" class="text-sm text-blue-600 dark:text-blue-500 hover:underline">Sign Up</a>
                 {{-- Login link --}}
-                <a href="{{ route('login') }}" class="text-sm text-blue-600 dark:text-blue-500 hover:underline">Login</a>
+                <a href="{{ route('login') }}" class="text-sm text-blue-600 dark:text-blue-500 hover:underline">Log In</a>
             @endauth
             
 

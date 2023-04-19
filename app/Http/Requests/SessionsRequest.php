@@ -18,7 +18,8 @@ class SessionsRequest extends FormRequest
     {
         return [
             'email' => ['required', 'exists:users,email'],
-            'password' => ['required'],
+            'password' => ['required', 'confirmed'],
+            'password_confirmation' => ['required']
         ];
     }
 
@@ -27,6 +28,8 @@ class SessionsRequest extends FormRequest
         return [
             'email.exists' => 'The provided credentials are invalid.',
             'password.required' => 'The password is required.',
+            'password.confirmed' => 'The password confirmation doesn\'t match',
+            'password_confirmation.required' => 'Please confirm the password.'
         ];
     }
 }

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1 class="font-bold uppercase">Add a New Author</h1>
+<h1 class="text-3xl font-bold mb-5 p-2">Add a New Author</h1>
 <div class="m-6 max-w-lg mx-auto bg-amber-100 border border-gray-200 p-6 rounded-xl">
     <form method="POST" action="{{ route('create-author') }}">
         @csrf

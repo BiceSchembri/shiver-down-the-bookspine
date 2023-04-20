@@ -12,16 +12,18 @@ class CommentController extends Controller
 {
     public function store(CommentRequest $request, Book $book)
     {
-        $body = $request->validated()['body'];
-
-        $comment = new Comment;
-
-        $comment->book_id = $book->id;
-        $comment->user_id = Auth::id();
-        $comment->body = $body;
-
-        $comment->save();
-
-        return view('books.book', compact('book'));
+        // Allow only logged in users to post a comment
+        if (Auth::check()) {
+            $body = $request->validated()['body'];
+            $comment = new Comment;
+            $comment->book_id = $book->id;
+            $comment->user_id = Auth::id();
+            $comment->body = $body;
+            $comment->save();
+            return view('books.show', compact('book'));
+        } else {
+            // Return fail message if user is not logged in and tries to post a comment
+            return redirect()->back()->with('fail', 'You must be logged in to post a comment.');
+        }
     }
 }

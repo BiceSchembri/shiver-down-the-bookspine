@@ -14,15 +14,17 @@ class BookController extends Controller
 {
     use AuthorizesRequests, ValidatesRequests;
 
-    public function show()
+    public function index()
     {
-        $books = Book::all();
-        return view('books.books', ['books' => $books]);
+        $books = Book::with(['language', 'author'])->get();
+        return view('books.index', ['books' => $books]);
     }
 
-    public function showDetail(Book $book)
+    public function show(Book $book)
     {
-        return view('books.book', ['book' => $book]);
+        $book = Book::with(['language', 'author', 'comments.user'])->withCount('comments')->where('id', $book->id)->first();
+        $comments = $book->comments()->latest()->get();
+        return view('books.show', ['book' => $book, 'comments' => $comments]);
     }
 
     public function create()

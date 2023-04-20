@@ -1,6 +1,8 @@
 <section>
 
     <h2 class="font-bold text-xl mt-10 mb-5">Comments</h2>
+
+    <x-fail />
     
 {{-- POST A COMMENT --}}
 <form method="POST" action="{{ route('store-comment', $book)}}">

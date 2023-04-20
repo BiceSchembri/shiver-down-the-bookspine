@@ -12,8 +12,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomepageController::class, 'show'])->name('homepage');
 
 // Book views
-Route::get('/books', [BookController::class, 'show'])->name('books');
-Route::get('/books/detail/{book:slug}', [BookController::class, 'showDetail'])->name('book-detail');
+Route::get('/books', [BookController::class, 'index'])->name('books');
+Route::get('/books/detail/{book:slug}', [BookController::class, 'show'])->name('book-detail');
 // Create book
 Route::get('/books/create', [BookController::class, 'create'])->name('create-book');
 Route::post('/books/create', [BookController::class, 'store'])->name('create-book');
@@ -24,8 +24,8 @@ Route::put('/books/edit/{book:slug}', [BookController::class, 'update'])->name('
 Route::delete('/books/delete/{book:slug}', [BookController::class, 'delete'])->name('delete-book');
 
 // Author views
-Route::get('/authors', [AuthorController::class, 'show'])->name('authors');
-Route::get('/authors/detail/{author:slug}', [AuthorController::class, 'showDetail'])->name('author-detail');
+Route::get('/authors', [AuthorController::class, 'index'])->name('authors');
+Route::get('/authors/detail/{author:slug}', [AuthorController::class, 'show'])->name('author-detail');
 // Create author
 Route::get('/authors/create', [AuthorController::class, 'create'])->name('create-author');
 Route::post('/authors/create', [AuthorController::class, 'store'])->name('create-author');
@@ -46,8 +46,8 @@ Route::post('/login', [SessionsController::class, 'store'])->middleware('guest')
 // Logout user
 Route::post('/logout', [SessionsController::class, 'destroy'])->middleware('auth')->name('logout');
 
-// TODO: post comments (only logged in users)
-Route::post('/books/detail/{book:slug}/comments', [CommentController::class, 'store'])->middleware('auth')->name('store-comment');
+// Post comments (only if logged in user)
+Route::post('/books/detail/{book:slug}/comments', [CommentController::class, 'store'])->name('store-comment');
 
 // TODO: admin auth (CUD, view soft deletes)
 // TODO: contact form (only logged in users)

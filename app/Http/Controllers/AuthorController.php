@@ -12,15 +12,15 @@ class AuthorController extends Controller
 {
     use AuthorizesRequests, ValidatesRequests;
 
-    public function show()
+    public function index()
     {
-        $authors = Author::all();
-        return view('authors.authors', ["authors" => $authors]);
+        $authors = Author::with(['book'])->get();
+        return view('authors.index', ["authors" => $authors]);
     }
 
-    public function showDetail(Author $author)
+    public function show(Author $author)
     {
-        return view('authors.author', ['author' => $author, 'book' => $author->book]);
+        return view('authors.show', ['author' => $author, 'book' => $author->book]);
     }
 
     public function create()

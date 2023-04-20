@@ -7,9 +7,9 @@ use App\Models\Language;
 
 class LanguageController extends Controller
 {
-    public function show()
-    {
-        $languages = Language::all();
-        return view('languages', ["languages" => $languages]);
-    }
+    // public function show()
+    // {
+    //     $languages = Language::all();
+    //     return view('languages', ["languages" => $languages]);
+    // }
 }

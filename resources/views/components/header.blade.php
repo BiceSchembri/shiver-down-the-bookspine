@@ -1,7 +1,7 @@
 <header>
-    <nav class="bg-purple-200 border-gray-200 dark:bg-gray-900 flex flex-col md:flex-row items-center justify-between px-4 py-2 md:px-8 md:py-4" style="background-image: url({{ asset('images/cute-ghost-pattern/22355-NU0464.jpg') }});">
+    <nav class="bg-purple-200 border-gray-200 dark:bg-gray-900 flex flex-col md:flex-row items-center justify-between px-4 py-2 md:px-8 md:py-4">
       <a href="{{ route('homepage') }}" class="flex items-center text-2xl font-semibold text-gray-900 dark:text-white">
-        <span class="self-center">Borrow A Shiver</span>
+        <span class="self-center font-bold text-xxl">Borrow A Shiver</span>
       </a>
       <div class="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4">
         <a href="{{ route('homepage') }}" class="text-sm text-gray-900 dark:text-white hover:text-purple-900">Home</a>

@@ -1,10 +1,13 @@
 <section>
 
-    <h2 class="font-bold text-xl mt-10 mb-5">Comments</h2>
+    <h2 class="font-bold text-xl mt-10 mb-5 px-2">Comments</h2>
 
     <x-fail />
 
 {{-- SHOW COMMENTS --}}
+@if (count($book->comments) === 0)
+<p class="px-2 text-purple-200">No comments yet.</p>
+@else
 @foreach ($book->comments as $comment)
 
 <article class="flex bg-gray-600 w-full md:w-1/2 p-2">
@@ -23,6 +26,7 @@
 </article>
 
 @endforeach
+@endif
 
 {{-- POST A COMMENT --}}
 <div class="flex-column w-full md:w-1/2 p-2">

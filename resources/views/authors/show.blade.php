@@ -6,11 +6,11 @@
 
 <div>
     <h1 class="text-3xl font-bold mb-5">{{$author->authorName()}}</h1>
-
+<ul class="list-disc text-purple-200 list-inside">
     @foreach($book as $book)
-    <p><a href="/books/detail/{{$book->slug}}" class="text-blue-300 dark:text-blue-400 hover:underline">{{$book->title}}</a></p>
+    <li><a href="/books/detail/{{$book->slug}}" class="text-purple-200 dark:text-purple-400 hover:underline">{{$book->title}}</a></li>
 @endforeach
-
+</ul>
 </div>
 
 {{-- EDIT AND DELETE WILL ONLY BE VISIBLE TO ADMIN --}}

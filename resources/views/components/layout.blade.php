@@ -12,7 +12,7 @@
 
     @include('components.header')
 
-    <body>
+    <body style="background-image: url({{ asset('images/cute-ghost-pattern/22355-NU0464.jpg') }});">
         <main>
             @yield('content')
         </main>

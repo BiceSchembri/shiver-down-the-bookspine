@@ -2,7 +2,7 @@
 
 @section('content')
 
-<section class="bg-gray-900 text-white p-10">
+<section class="bg-gray-900 opacity-95 text-white p-10">
 
 <div>
     <h1 class="text-3xl font-bold mb-5">{{$author->authorName()}}</h1>

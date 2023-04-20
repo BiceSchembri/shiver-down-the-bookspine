@@ -4,16 +4,9 @@
 
 <x-success />
 
-<div>
-<p>
-    Browse the books of this little library of horrors.
-</p>
-<p>
-    Reserve the book you'd like to read next.
-</p>
-<p>
-    Get in touch: suggest more books to add to the library!
-</p>
+<div class="bg-gray-900 opacity-95 text-white text-center p-10">
+    <p class="text-purple-200">Browse the books of this little library of horrors.</p>
+    <p class="text-purple-200">Leave your comments and share spooky ideas.</p>
 </div>
     
 @endsection

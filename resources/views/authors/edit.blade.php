@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="bg-gray-900 text-purple-900">
+<div class="bg-gray-900 opacity-95 text-purple-900">
     <div class="container mx-auto">
 <h1 class="text-3xl font-bold mb-5 p-2 text-center text-white">Edit author</h1>
 <div class="m-6 max-w-lg mx-auto p-2 rounded-xl">

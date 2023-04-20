@@ -10,7 +10,7 @@
 @else
 @foreach ($book->comments as $comment)
 
-<article class="flex bg-gray-600 w-full md:w-1/2 p-2">
+<article class="flex bg-gray-600 opacity-95 w-full md:w-1/2 p-2">
         <img src="{{ asset('images/monster.png') }}" class="h-8 mr-3" alt="monster avatar" />
     <div class="bg-gray-800 w-full p-1 rounded">
         <header>

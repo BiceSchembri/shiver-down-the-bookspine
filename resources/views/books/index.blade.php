@@ -5,7 +5,7 @@
 <x-success />
 <x-fail />
 
-<div class="bg-gray-900 text-white">
+<div class="bg-gray-900 opacity-95 text-white">
     <div class="container mx-auto">
         <h1 class="text-3xl font-bold mb-5 p-2 text-center">Books</h1>
         <div class="overflow-x-auto">

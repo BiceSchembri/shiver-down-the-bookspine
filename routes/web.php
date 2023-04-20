@@ -47,7 +47,7 @@ Route::post('/login', [SessionsController::class, 'store'])->middleware('guest')
 Route::post('/logout', [SessionsController::class, 'destroy'])->middleware('auth')->name('logout');
 
 // TODO: post comments (only logged in users)
-Route::post('/books/detail/{book:slug}/comments', [CommentController::class, 'store'])->middleware('auth')->name('comments');
+Route::post('/books/detail/{book:slug}/comments', [CommentController::class, 'store'])->middleware('auth')->name('create-comment');
 
 // TODO: admin auth (CUD, view soft deletes)
 // TODO: contact form (only logged in users)

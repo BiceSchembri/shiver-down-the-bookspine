@@ -28,7 +28,5 @@
                 {{-- Login link --}}
                 <a href="{{ route('login') }}" class="text-sm text-blue-600 dark:text-blue-500 hover:underline">Log In</a>
             @endauth
-            
-
     </nav>
 </header>

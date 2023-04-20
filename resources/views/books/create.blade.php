@@ -2,9 +2,9 @@
 
 @section('content')
 
-<div class="bg-gray-900 text-white">
+<div class="bg-gray-900 text-purple-900">
     <div class="container mx-auto mt-10">
-<h1 class="text-3xl font-bold mb-5 p-2 text-center">Add a New Book</h1>
+<h1 class="text-3xl font-bold mb-5 p-2 text-center text-purple-200">Add a New Book</h1>
 <div class="m-6 max-w-lg mx-auto p-2 rounded-xl">
     <form method="POST" action="{{ route('create-book') }}">
         @csrf

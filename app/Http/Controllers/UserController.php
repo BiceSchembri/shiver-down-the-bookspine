@@ -39,7 +39,6 @@ class UserController extends Controller
 
         $user = User::create($attributes);
 
-        // log the user in
         auth()->login($user);
 
         return redirect('/')->with('success', 'You registered successfully');

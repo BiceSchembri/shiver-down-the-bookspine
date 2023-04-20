@@ -1,32 +1,32 @@
 <header>
-    <nav class="bg-white border-gray-200 dark:bg-gray-900">
-            <a href="{{ route('homepage') }}" class="flex items-center">
-                {{-- <img src="https://flowbite.com/docs/images/logo.svg" class="h-8 mr-3" alt="Flowbite Logo" /> --}}
-                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Borrow A Shiver</span>
-            </a>
-            <a href="{{ route('homepage') }}" class="text-sm text-blue-600 dark:text-blue-500 hover:underline">Home</a>
-            <a href="{{ route('books') }}" class="text-sm text-blue-600 dark:text-blue-500 hover:underline">Books</a>
-            <a href="{{ route('authors') }}" class="text-sm text-blue-600 dark:text-blue-500 hover:underline">Authors</a>
-            {{-- <a href="" class="text-sm text-blue-600 dark:text-blue-500 hover:underline">Reserve</a>
-            <a href="" class="text-sm text-blue-600 dark:text-blue-500 hover:underline">Contact</a> --}}
-            <a href="{{ route('create-book') }}" class="text-sm text-blue-600 dark:text-blue-500 hover:underline">Add Book</a>
-            <a href="{{ route('create-author') }}" class="text-sm text-blue-600 dark:text-blue-500 hover:underline">Add Author</a>
-            
-            {{-- LOGGED IN --}}
-            @auth
-                {{-- Welcome user --}}
-                <span>Welcome {{auth()->user()->firstname}}</span>
-                {{-- Logout --}}
-                <form method="POST" action="/logout">
-                    @csrf
-                <button type="submit" class="text-sm text-blue-600 dark:text-blue-500 hover:underline">Log Out</button>
-                </form>
-            {{-- NOT LOGGED IN --}}
-            @else
-                {{-- Register link --}}
-                <a href="{{ route('register') }}" class="text-sm text-blue-600 dark:text-blue-500 hover:underline">Sign Up</a>
-                {{-- Login link --}}
-                <a href="{{ route('login') }}" class="text-sm text-blue-600 dark:text-blue-500 hover:underline">Log In</a>
-            @endauth
+    <nav class="bg-purple-200 border-gray-200 dark:bg-gray-900 flex flex-col md:flex-row items-center justify-between px-4 py-2 md:px-8 md:py-4">
+      <a href="{{ route('homepage') }}" class="flex items-center text-2xl font-semibold text-gray-900 dark:text-white">
+        <span class="self-center">Borrow A Shiver</span>
+      </a>
+      <div class="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4">
+        <a href="{{ route('homepage') }}" class="text-sm text-gray-900 dark:text-white hover:text-purple-900">Home</a>
+        <a href="{{ route('books') }}" class="text-sm text-gray-900 dark:text-white hover:text-purple-900">Books</a>
+        <a href="{{ route('authors') }}" class="text-sm text-gray-900 dark:text-white hover:text-purple-900">Authors</a>
+        <a href="{{ route('create-book') }}" class="text-sm text-gray-900 dark:text-white hover:text-purple-900">Add Book</a>
+        <a href="{{ route('create-author') }}" class="text-sm text-gray-900 dark:text-white hover:text-purple-900">Add Author</a>
+        <div class="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4">
+          {{-- LOGGED IN --}}
+          @auth
+          {{-- Welcome user --}}
+          <span class="text-sm text-gray-900 dark:text-white">Welcome {{auth()->user()->firstname}}</span>
+          {{-- Logout --}}
+          <form method="POST" action="/logout">
+            @csrf
+            <button type="submit" class="inline-block px-4 py-2 bg-purple-900 text-white rounded-md text-sm font-medium hover:bg-purple-700 focus:outline-none focus:bg-purple-700">Log Out</button>
+          </form>
+          {{-- NOT LOGGED IN --}}
+          @else
+          {{-- Register link --}}
+          <a href="{{ route('register') }}" class="inline-block px-4 py-2 bg-purple-900 text-white rounded-md text-sm font-medium hover:bg-purple-700 focus:outline-none focus:bg-purple-700">Sign Up</a>
+          {{-- Login link --}}
+          <a href="{{ route('login') }}" class="inline-block px-4 py-2 bg-purple-900 text-white rounded-md text-sm font-medium hover:bg-purple-700 focus:outline-none focus:bg-purple-700">Log In</a>
+          @endauth
+        </div>
+      </div>
     </nav>
-</header>
+  </header>

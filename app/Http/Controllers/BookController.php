@@ -23,7 +23,7 @@ class BookController extends Controller
     public function show(Book $book)
     {
         $book = Book::with(['language', 'author', 'comments.user'])->withCount('comments')->where('id', $book->id)->first();
-        $comments = $book->comments()->latest()->get();
+        $comments = $book->comments()->get();
         return view('books.show', ['book' => $book, 'comments' => $comments]);
     }
 

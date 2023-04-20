@@ -4,12 +4,10 @@
 
 <section class="bg-gray-900 text-white p-10">
     <h1 class="text-3xl font-bold mb-5">{{$book->title}}</h1>
-    {{-- TODO: allow for more authors --}}
     <p><a href="/authors/detail/{{$book->author->slug}}" class="text-blue-300 dark:text-blue-400 hover:underline">{{$book->author->authorName()}}</a></p>
     <p class="text-gray-400">Language: {{$book->language->name}}</p>
     <p>{{$book->description}}</p>
     <p class="text-gray-400">Status: 
-        
         
             @if($book->status === 'on hold')
                 <span class="text-red-500">{{$book->status}}</span>

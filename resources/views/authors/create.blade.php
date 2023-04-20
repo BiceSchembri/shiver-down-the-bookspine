@@ -2,31 +2,35 @@
 
 @section('content')
 
-<h1 class="text-3xl font-bold mb-5 p-2">Add a New Author</h1>
-<div class="m-6 max-w-lg mx-auto bg-amber-100 border border-gray-200 p-6 rounded-xl">
-    <form method="POST" action="{{ route('create-author') }}">
+<div class="bg-gray-900 text-purple-900">
+    <div class="container mx-auto">
+<h1 class="text-3xl font-bold mb-5 p-2 text-center text-white">Add a new author</h1>
+    <div class="m-6 max-w-lg mx-auto p-2 rounded-xl">
+        <form method="POST" action="{{ route('create-author') }}">
         @csrf
 
-        <label for="firstname" class="block mb-2 uppercase font-bold text-xs text-blue-700">Author's First Name: </label>
-        <input type="text" id="firstname" name="firstname" value="{{old('firstname')}}" class="border border-purple-900 p-2 w-full" required>
+        <label for="firstname" class="block mb-2 uppercase font-bold text-xs text-purple-200">Author's First Name: </label>
+        <input type="text" id="firstname" name="firstname" value="{{old('firstname')}}" class="border border-purple-200 p-2 w-full" required>
         @error('firstname')
         <p class="text-red-500 text-xs mt-2">{{$message}}</p>
         @enderror
 
-        <label for="lastname" class="block mb-2 uppercase font-bold text-xs text-blue-700">Author's Last Name: </label>
-        <input type="text" id="lastname" name="lastname" value="{{old('lastname')}}" class="border border-purple-900 p-2 w-full" required>
+        <label for="lastname" class="block mb-2 uppercase font-bold text-xs text-purple-200">Author's Last Name: </label>
+        <input type="text" id="lastname" name="lastname" value="{{old('lastname')}}" class="border border-purple-200 p-2 w-full" required>
         @error('lastname')
         <p class="text-red-500 text-xs mt-2">{{$message}}</p>
         @enderror
 
-        <label for="description" class="block mb-2 uppercase font-bold text-xs text-blue-700">Description: </label>
-        <input type="text" id="description" name="description" value="{{old('description')}}" class="border border-purple-900 p-2 w-full" required>
+        <label for="description" class="block mb-2 uppercase font-bold text-xs text-purple-200">Description: </label>
+        <input type="text" id="description" name="description" value="{{old('description')}}" class="border border-purple-200 p-2 w-full" required>
         @error('description')
         <p class="text-red-500 text-xs mt-2">{{$message}}</p>
         @enderror
 
-        <button type="submit" class="bg-blue-400 text-white rounded mt-2 p-1 hover:bg-blue-500">Submit</button>
+        <button type="submit" class="bg-purple-200 text-gray-900 rounded mt-2 p-1 hover:bg-purple-300">Submit</button>
     </form>
+</div>
+</div>
 </div>
 
 @endsection

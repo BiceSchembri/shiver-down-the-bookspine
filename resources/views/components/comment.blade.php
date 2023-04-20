@@ -1,5 +1,9 @@
+<section>
+
+    <h2 class="font-bold text-xl mt-10 mb-5">Comments</h2>
+    
 {{-- POST A COMMENT --}}
-<form method="POST" action="{{ route('create-comment', $book)}}">
+<form method="POST" action="{{ route('store-comment', $book)}}">
    
     @csrf
 
@@ -35,4 +39,4 @@
 
 @endforeach
 
-
+</section>

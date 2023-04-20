@@ -34,10 +34,9 @@
     <a href="{{ route('books') }}" class="text-sm text-blue-300 dark:text-blue-400 hover:underline mt-4">Back to Books</a>
 
     {{-- START OF COMMENT SECTION --}}
-    <h2 class="font-bold text-xl mt-10 mb-5">Comments</h2>
-    <section>
-        <x-book-comment :book=$book class="mb-4"/>
-    </section>
+        <x-comment :book=$book class="mb-4"/>
+    {{-- END OF COMMENT SECTION --}}
+
 </section>
 
 @endsection

@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,15 +13,30 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\Comment::factory(10)->create();
+        // \App\Models\Comment::factory(3)->create();
 
-        // \App\Models\User::factory(10)->create();
+        // Create the admin user if it doesn't exist
+        \App\Models\User::firstOrCreate([
+            'email' => 'admin@email.com',
+        ], [
+            'firstname' => 'Admin',
+            'lastname' => 'Admin',
+            'username' => 'Admin',
+            'password' => 'ClownsAreScary',
+            'password' => '12345678',
+            'email_verified_at' => now(),
+            'is_admin' => 1,
+        ]);
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        //     'password' => Hash::make('test01');
-        // ]);
-
+        \App\Models\User::firstOrCreate([
+            'email' => 'sam@email.com',
+        ], [
+            'firstname' => 'Sam',
+            'lastname' => 'Smith',
+            'username' => 'sammy',
+            'password' => '12345678',
+            'email_verified_at' => now(),
+            'is_admin' => 0
+        ]);
     }
 }

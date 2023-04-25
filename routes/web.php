@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\AuthorController;
@@ -14,18 +15,20 @@ Route::get('/', [HomepageController::class, 'show'])->name('homepage');
 // Book views
 Route::get('/books', [BookController::class, 'index'])->name('books');
 Route::get('/books/detail/{book:slug}', [BookController::class, 'show'])->name('book-detail');
-// Create book
-Route::get('/books/create', [BookController::class, 'create'])->name('create-book');
-Route::post('/books/create', [BookController::class, 'store'])->name('create-book');
-// Edit book
-Route::get('/books/edit/{book:slug}', [BookController::class, 'edit'])->name('edit');
-Route::put('/books/edit/{book:slug}', [BookController::class, 'update'])->name('edit');
-// Delete book
-Route::delete('/books/delete/{book:slug}', [BookController::class, 'delete'])->name('delete-book');
+
+// Create book - admin
+Route::get('/books/create', [AdminController::class, 'create'])->middleware('admin')->name('create-book');
+Route::post('/books/create', [AdminController::class, 'store'])->middleware('admin')->name('create-book');
+// Edit book - admin
+Route::get('/books/edit/{book:slug}', [AdminController::class, 'edit'])->middleware('admin')->name('edit');
+Route::put('/books/edit/{book:slug}', [AdminController::class, 'update'])->middleware('admin')->name('edit');
+// Delete book - admin
+Route::delete('/books/delete/{book:slug}', [AdminController::class, 'delete'])->middleware('admin')->name('delete-book');
 
 // Author views
 Route::get('/authors', [AuthorController::class, 'index'])->name('authors');
 Route::get('/authors/detail/{author:slug}', [AuthorController::class, 'show'])->name('author-detail');
+
 // Create author
 Route::get('/authors/create', [AuthorController::class, 'create'])->name('create-author');
 Route::post('/authors/create', [AuthorController::class, 'store'])->name('create-author');
@@ -35,15 +38,13 @@ Route::put('/authors/edit/{author:slug}', [AuthorController::class, 'update'])->
 // Delete author
 Route::delete('/authors/delete/{author:slug}', [AuthorController::class, 'delete'])->name('delete-author');
 
-// Register user
+// User registration
 Route::get('/register', [UserController::class, 'create'])->middleware('guest')->name('register');
 Route::post('/register', [UserController::class, 'store'])->middleware('guest')->name('register');
 
-// Login user
+// User sessions
 Route::get('/login', [SessionsController::class, 'create'])->middleware('guest')->name('login');
 Route::post('/login', [SessionsController::class, 'store'])->middleware('guest')->name('login');
-
-// Logout user
 Route::post('/logout', [SessionsController::class, 'destroy'])->middleware('auth')->name('logout');
 
 // Post comments (only if logged in user)

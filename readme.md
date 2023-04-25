@@ -12,35 +12,44 @@ It is written in PHP Laravel, HTML, and CSS, and it is connected to a MySQL data
 
 In order to run this project on your machine, you need to have PHP installed as well as a MySQL database. You will also have to configure your own database connection.
 
-[How to install Laravel](https://laravel.com/docs/5.4/installation#installation)
+Check the official documentation on [how to install Laravel](https://laravel.com/docs/5.4/installation#installation).
 
 Open your terminal and clone the repository:
-'git clone git@github.com:gothinkster/laravel-realworld-example-app.git'
+
+<!-- TODO: update project name -->
+
+`git clone git@github.com:PATH/PROJECT NAME.git`
 
 Open the repo folder:
-'cd .........'
+
+<!-- TODO: update project name -->
+
+`cd .........`
 
 Install the dependencies using #composer#
-'composer install'
+`composer install`
 
-Copy the example env file and make the required configuration changes in the .env file
-'cp .env.example .env'
+Copy the example env file. Make the required configuration changes in the .env file. Set the database connection.
+
+<!-- Examples -->
+
+`cp .env.example .env`
 
 Generate a new application key
-php artisan key:generate
 
-<!-- Generate a new JWT authentication secret key
-php artisan jwt:generate -->
+<!-- Check -->
 
-Run the database migrations (Set the database connection in .env before migrating)
-php artisan migrate
+`php artisan key:generate`
+
+Run the database migrations
+`php artisan migrate`
 
 Start the local development server
-php artisan serve
+`php artisan serve`
 
-You can now access the server at http://localhost:8000
+You can now access the server at http://localhost:8000.
 
-## Features
+## Usage
 
 The landing page offers a brief description of the website contents. The main navigation changes according to who is viewing the website: not logged in, logged in as user, logged in as admin.
 
@@ -49,3 +58,25 @@ The landing page offers a brief description of the website contents. The main na
 -   Users that are logged in can also leave comments on the book detail pages.
 
 -   Only the admin or admins can create, update, and delete books and authors.
+
+-   Success and fail messges are returned after completing operations, for example when a new book is created correctly or when an operation is not authorized. Authors cannot be deleted if thye have any book associated to them; instead, an error message will be returned.
+
+## Description
+
+Controllers
+Models
+Requests
+Middleware
+update to Kernel
+update to config
+Routes in web.php
+Migrations
+Factories
+Seeders
+.gitignore
+.env configuration
+
+Database: created with HeidiSQL
+Tables and foreign ids
+
+Eloquent relationships

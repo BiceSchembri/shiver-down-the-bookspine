@@ -2,17 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Str;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Foundation\Validation\ValidatesRequests;
-use App\Http\Requests\BookRequest;
 use App\Models\Book;
-use App\Models\Language;
-use App\Models\Author;
 
 class BookController extends Controller
 {
-    use AuthorizesRequests, ValidatesRequests;
+    // use AuthorizesRequests, ValidatesRequests;
 
     public function index()
     {

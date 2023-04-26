@@ -10,14 +10,26 @@ use App\Models\Book;
 use App\Models\Language;
 use App\Models\Author;
 
-class AdminController extends Controller
+class AdminBookController extends Controller
 {
+    use AuthorizesRequests, ValidatesRequests;
+
+    // Add the Admin middleware to the constructor to apply it to all following functions/methods
+    public function __construct()
+    {
+        $this->middleware('auth');
+
+        $this->middleware(function ($request, $next) {
+            if (!auth()->user()->is_admin) {
+                abort(403);
+            }
+
+            return $next($request);
+        });
+    }
+
     public function create()
     {
-        if (auth()->guest()) {
-            abort(403);
-        }
-
         return view('books.create', ['languages' => Language::all(), 'authors' => Author::all()]);
     }
 

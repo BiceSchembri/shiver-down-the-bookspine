@@ -1,12 +1,18 @@
 # PHP Laravel Project - Borrow a Shiver
 
+Author: Beatrice Schembri
+
+Created on: 04/2023
+
+Find me on [GitHub](...)
+
 ---
 
 ## Summary
 
-The project consists of a collection of horror books that can be viewed, commented on, and updated.
+The project consists of a collection of horror books (with author, title, description) that can be viewed, commented on, and updated.
 
-It is written in PHP Laravel, HTML, and CSS, and it is connected to a MySQL database.
+It is written in PHP Laravel, HTML, and CSS, and it is connected to a MySQL database. For development, I used HeidiSQL database with the MariaDB database manager. My IDE was VisualStudioCode.
 
 ## Requirements and Installation
 
@@ -26,14 +32,17 @@ Open the repo folder:
 
 `cd .........`
 
-Install the dependencies using #composer#
+Install **Composer** globally:
 `composer install`
 
-Copy the example env file. Make the required configuration changes in the .env file. Set the database connection.
+Copy the example **.env.example** to set the configuration and the database connection:
 
-<!-- Examples -->
-
-`cp .env.example .env`
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel
+DB_USERNAME=root
+DB_PASSWORD=
 
 Generate a new application key
 
@@ -41,15 +50,19 @@ Generate a new application key
 
 `php artisan key:generate`
 
-Run the database migrations
+Run the migrations to create the database tables:
 `php artisan migrate`
 
-Start the local development server
+Start the local development server:
 `php artisan serve`
 
-You can now access the server at http://localhost:8000.
+Open http://localhost:8000 in your browser.
 
-## Usage
+NOTE:
+
+<!-- Seeders can't be used in production, but maybe for running local test??? -->
+
+## Using the website
 
 The landing page offers a brief description of the website contents. The main navigation changes according to who is viewing the website: not logged in, logged in as user, logged in as admin.
 
@@ -59,7 +72,20 @@ The landing page offers a brief description of the website contents. The main na
 
 -   Only the admin or admins can create, update, and delete books and authors.
 
--   Success and fail messges are returned after completing operations, for example when a new book is created correctly or when an operation is not authorized. Authors cannot be deleted if thye have any book associated to them; instead, an error message will be returned.
+-   Success and fail messages are returned after completing or attempting to perform certain operations, e.g. when a new book is added correctly to the database, or when an operation is not authorized (authors cannot be deleted if they have any book associated to them; instead, an error message will be returned and the user will be redirected to the authors list).
+
+## Features
+
+-   MVC pattern -> Models, Views, Controllers are created for each topic, as well as Requests for validation where needed
+-   CRUD flow: books and authors can be created (via a form), viewed (general list or detail page), updated (via a second form) and deleted
+-   Sof delete: when a book or an author is deleted, they are not removed from the database. Instead, the value of the column .......... is updated and the item is removed from the page view.
+-   Eloquent relationships (hasMany, belongsTo)
+-   User registration (with input validation on both frontend and backend)
+-   login and logout
+-   admin
+-   hashing passwords
+-   AlpineJS for flash messages
+-   Migrations, factory, seeders
 
 ## Description
 
@@ -78,5 +104,3 @@ Seeders
 
 Database: created with HeidiSQL
 Tables and foreign ids
-
-Eloquent relationships

@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\Comment::factory(1)->create();
 
         // Seed non-admin users from factory
-        \App\Models\User::factory(2)->create();
+        \App\Models\User::factory(3)->create();
 
         // Create admin if it doesn't exist already (unique email)
         \App\Models\User::firstOrCreate([
@@ -30,11 +30,5 @@ class DatabaseSeeder extends Seeder
             'is_admin' => 1,
             'remember_token' => Str::random(10),
         ]);
-
-        // Use the factory to create additional admin users
-        // \App\Models\User::factory()->count(1)->state([
-        //     'is_admin' => true,
-        //     'email_verified_at' => now(),
-        // ])->create();
     }
 }

@@ -51,7 +51,7 @@ Route::post('/logout', [SessionsController::class, 'destroy'])->middleware('auth
 // Post comments (only if logged in user)
 Route::post('/books/detail/{book:slug}/comments', [CommentController::class, 'store'])->name('store-comment');
 
-// TODO: admin auth (CUD, view soft deletes)
+// TODO: admin can view soft deletes)
 // TODO: contact form (only logged in users)
 // TODO: user profile page?
 // TODO: manyToMany rel. for authors and books

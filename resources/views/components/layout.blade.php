@@ -5,9 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
         <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="icon" type="image/x-icon" href="{{ asset('images/ghost.png') }}">
         <link rel="stylesheet" href="styles/style.css">
-        <link rel="stylesheet" href="styles/style.css">
-        <title>Borrow A Shiver</title>
+        <title>Shiver Down the Bookspine</title>
     </head>
 
     @include('components.header')

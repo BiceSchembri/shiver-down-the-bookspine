@@ -21,7 +21,7 @@
           {{-- LOGGED IN --}}
           @auth
           {{-- Welcome user --}}
-          <span class="text-sm text-gray-900 dark:text-white">Welcome {{auth()->user()->firstname}}</span>
+          <span class="text-sm text-blue-900 font-bold dark:text-white">Welcome {{auth()->user()->firstname}}</span>
           {{-- Logout --}}
           <form method="POST" action="/logout">
             @csrf

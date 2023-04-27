@@ -2,9 +2,8 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,29 +12,29 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\Comment::factory(3)->create();
+        // Seed comments from factory
+        \App\Models\Comment::factory(1)->create();
 
-        // Create the admin user if it doesn't exist
+        // Seed non-admin users from factory
+        \App\Models\User::factory(2)->create();
+
+        // Create admin if it doesn't exist already (unique email)
         \App\Models\User::firstOrCreate([
             'email' => 'admin@email.com',
         ], [
             'firstname' => 'Admin',
             'lastname' => 'Admin',
             'username' => 'Admin',
-            'password' => 'ClownsAreScary',
             'email_verified_at' => now(),
+            'password' => 'adminpassword',
             'is_admin' => 1,
+            'remember_token' => Str::random(10),
         ]);
 
-        \App\Models\User::firstOrCreate([
-            'email' => 'sam@email.com',
-        ], [
-            'firstname' => 'Sam',
-            'lastname' => 'Smith',
-            'username' => 'sammy',
-            'password' => '12345678',
-            'email_verified_at' => now(),
-            'is_admin' => 0
-        ]);
+        // Use the factory to create additional admin users
+        // \App\Models\User::factory()->count(1)->state([
+        //     'is_admin' => true,
+        //     'email_verified_at' => now(),
+        // ])->create();
     }
 }

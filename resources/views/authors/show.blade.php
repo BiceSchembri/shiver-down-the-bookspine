@@ -13,7 +13,8 @@
 </ul>
 </div>
 
-{{-- EDIT AND DELETE WILL ONLY BE VISIBLE TO ADMIN --}}
+{{-- Start of admin rights - only admins can see edit and delete --}}
+@if (auth()->check() && auth()->user()->is_admin)
 <div class="flex">
 
 <a href="/authors/edit/{{$author->slug}}" class="bg-purple-400 text-white rounded mt-2 p-1 hover:bg-purple-500">Edit Author</a>
@@ -24,6 +25,8 @@
     <button type="submit" class="bg-red-400 text-white rounded mt-2 p-1 hover:bg-red-500 ml-2">Delete Author</button>
 </form>
 </div>
+@endif
+{{-- End of admin rights --}}
 
 <a href="{{ route('authors') }}" class="text-sm text-blue-300 dark:text-blue-400 hover:underline mt-4">Back to Authors</a>
 

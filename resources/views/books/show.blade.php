@@ -18,16 +18,18 @@
             @endif
     </p>
         
-    {{-- EDIT AND DELETE WILL ONLY BE VISIBLE TO ADMIN --}}
+    {{-- Start of admin rights - only admins can see edit and delete --}}
+    @if (auth()->check() && auth()->user()->is_admin)
     <div class="flex">
         <a href="/books/edit/{{$book->slug}}" class="bg-purple-400 text-white rounded mt-2 p-1 hover:bg-purple-500">Edit Book </a>
-
         <form action="{{ route('delete-book', $book->slug) }}" method="POST">
             @csrf
             @method('DELETE')
             <button type="submit" class="bg-red-400 text-white rounded mt-2 p-1 hover:bg-red-500 ml-2">Delete Book</button>
         </form>
     </div>
+    @endif
+    {{-- End of admin rights --}}
 
     <a href="{{ route('books') }}" class="text-sm text-blue-300 dark:text-blue-400 hover:underline mt-4">Back to Books</a>
 

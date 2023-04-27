@@ -24,7 +24,7 @@ Route::post('/books/create', [AdminBookController::class, 'store'])->middleware(
 Route::get('/books/edit/{book:slug}', [AdminBookController::class, 'edit'])->middleware('admin')->name('edit');
 Route::put('/books/edit/{book:slug}', [AdminBookController::class, 'update'])->middleware('admin')->name('edit');
 // Delete book - admin
-Route::delete('/books/delete/{book:slug}', [AdminBookController::class, 'delete'])->middleware('admin')->name('delete-book');
+Route::delete('/books/delete/{book:slug}', [AdminBookController::class, 'destroy'])->middleware('admin')->name('delete-book');
 
 // Author views
 Route::get('/authors', [AuthorController::class, 'index'])->name('authors');
@@ -37,7 +37,7 @@ Route::post('/authors/create', [AdminAuthorController::class, 'store'])->middlew
 Route::get('/authors/edit/{author:slug}', [AdminAuthorController::class, 'edit'])->middleware('admin')->name('edit');
 Route::put('/authors/edit/{author:slug}', [AdminAuthorController::class, 'update'])->middleware('admin')->name('edit');
 // Delete author
-Route::delete('/authors/delete/{author:slug}', [AdminAuthorController::class, 'delete'])->middleware('admin')->name('delete-author');
+Route::delete('/authors/delete/{author:slug}', [AdminAuthorController::class, 'destroy'])->middleware('admin')->name('delete-author');
 
 // User registration
 Route::get('/register', [UserController::class, 'create'])->middleware('guest')->name('register');

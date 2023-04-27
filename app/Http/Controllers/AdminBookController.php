@@ -60,12 +60,6 @@ class AdminBookController extends Controller
         return redirect('books')->with('success', 'Book added successfully');
     }
 
-    public function delete(Book $book)
-    {
-        $book->delete();
-        return redirect('books')->with('success', 'Book deleted successfully');
-    }
-
     public function edit(Book $book)
     {
         return view('books.edit', ['book' => $book, 'languages' => Language::all(), 'authors' => Author::all()]);
@@ -99,5 +93,11 @@ class AdminBookController extends Controller
         $book->save();
 
         return redirect('books')->with('success', 'Book updated successfully');
+    }
+
+    public function destroy(Book $book)
+    {
+        $book->delete();
+        return redirect('books')->with('success', 'Book deleted successfully');
     }
 }

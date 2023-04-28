@@ -20,19 +20,27 @@ In order to run this project on your machine, you need to have PHP installed as 
 
 Check the official documentation on [how to install Laravel](https://laravel.com/docs/5.4/installation#installation).
 
-Open your terminal and clone the repository, then open the repo folder.
+Open your terminal and clone the repository:
+
+`git clone git@github.com:BiceSchembri/shiver-down-the-bookspine.git`
+
+Open the repo folder:
+
+`cd shiver-down-the-bookspine`
 
 Install **Composer** globally:
 `composer install`
 
-Copy the example **.env.example** to set the configuration and the database connection:
+Create a new database.
 
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=laravel
-DB_USERNAME=root
-DB_PASSWORD=
+Create a new **.env** file i your root folder. Copy the contents of the **.env.example** in it. Then set the configuration and the database connection (change them according to your preferred settings):
+
+DB_CONNECTION=**mysql**
+DB_HOST=**127.0.0.1**
+DB_PORT=**3306**
+DB_DATABASE=**database_name**
+DB_USERNAME=**root**
+DB_PASSWORD=**your-database-password**
 
 Generate a new application key:
 `php artisan key:generate`

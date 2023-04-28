@@ -4,11 +4,11 @@ Author: Beatrice Schembri
 
 Created on: 04/2023
 
-Find me on [GitHub](...)
-
 ---
 
 ## Summary
+
+<img width="678" alt="home" src="https://user-images.githubusercontent.com/103190920/235110535-804147b2-b475-4b7c-942c-0fc3ac754265.png">
 
 The website provides a way to display, update and comment a collection of items - specifically, horror books, each with an author, a title, and a description. Registered users and admins can perform different actions.
 
@@ -20,9 +20,7 @@ In order to run this project on your machine, you need to have PHP installed as 
 
 Check the official documentation on [how to install Laravel](https://laravel.com/docs/5.4/installation#installation).
 
-Open your terminal and clone the repository,
-
-then open the repo folder.
+Open your terminal and clone the repository, then open the repo folder.
 
 Install **Composer** globally:
 `composer install`
@@ -51,9 +49,21 @@ Open http://localhost:8000 in your browser.
 
 The landing page offers a brief description of the website contents. The main navigation changes according to who is viewing the website: not logged in, logged in as user, logged in as admin.
 
+<img width="566" alt="bookdetail" src="https://user-images.githubusercontent.com/103190920/235110526-b65b343f-a353-4dea-b380-4070cc880881.png">
+
+<img width="589" alt="bookview" src="https://user-images.githubusercontent.com/103190920/235110532-ccb9802b-3772-4dd9-9a67-bb8d1fa85070.png">
+
+<img width="581" alt="authorview" src="https://user-images.githubusercontent.com/103190920/235110525-d2d866ae-53bf-491b-876c-73339bb0a2b3.png">
+
+<img width="572" alt="authordetail" src="https://user-images.githubusercontent.com/103190920/235110523-a5678b85-4359-42ea-809e-ed5cdedfcdbd.png">
+
 -   Guests, or unregistered / not logged in visitors, can view the book index and book detail page, as well as the authors index and authors detail. Visitors can register via a form and be entered in the Users table. Once registered, they are also automatically logged in.
 
+<img width="411" alt="signup" src="https://user-images.githubusercontent.com/103190920/235110540-5b2276ae-99bc-4d4e-baa9-92f09c2a305e.png">
+
 -   Users that are logged in can also leave comments on the book detail pages.
+
+<img width="679" alt="addbook" src="https://user-images.githubusercontent.com/103190920/235110517-e75b2340-63c5-46e5-b667-a41d165c4a6e.png">
 
 -   Only the admin or admins can create, update, and delete books and authors.
 

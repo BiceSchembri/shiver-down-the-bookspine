@@ -36,10 +36,15 @@ Create a new database.
 Create a new **.env** file i your root folder. Copy the contents of the **.env.example** in it. Then set the configuration and the database connection (change them according to your preferred settings):
 
 DB_CONNECTION=**mysql**
+
 DB_HOST=**127.0.0.1**
+
 DB_PORT=**3306**
+
 DB_DATABASE=**database_name**
+
 DB_USERNAME=**root**
+
 DB_PASSWORD=**your-database-password**
 
 Generate a new application key:

@@ -59,7 +59,7 @@ class AdminAuthorController extends Controller
         $lastname = $request->validated()['lastname'];
         $description = $request->validated()['description'];
 
-        // Update slug only if book title is changed (since slug is based on title)
+        // Update slug only if author name is changed (since slug is based on title)
         if ($firstname !== $author->firstname && $lastname !== $author->lastname) {
             $author->slug = Str::slug($author->firstname . '-' . $author->lastname);
         }

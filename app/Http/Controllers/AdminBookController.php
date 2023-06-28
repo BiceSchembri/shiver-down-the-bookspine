@@ -30,7 +30,8 @@ class AdminBookController extends Controller
 
     public function create()
     {
-        return view('books.create', ['languages' => Language::all(), 'authors' => Author::all()]);
+        // return view('books.create', ['languages' => Language::all(), 'authors' => Author::all()]);
+        return view('books.create', ['languages' => Language::all()]);
     }
 
     public function store(BookRequest $request)
